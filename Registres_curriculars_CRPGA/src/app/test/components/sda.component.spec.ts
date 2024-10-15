@@ -30,7 +30,15 @@ describe('SdaComponent', () => {
     const div = compiled.querySelector('div');
     const anchor = div?.querySelector('a');
     expect(anchor).toBeTruthy();
+
     expect(anchor?.innerHTML).toContain('⇦');
+});
+it('should have a <p> tag inside the first div with name Usuari', () => {
+  const compiled = fixture.nativeElement as HTMLElement;
+  const div = compiled.querySelector('div');
+  const p = div?.querySelector('p');
+  expect(p).toBeTruthy();
+  expect(p?.textContent).toContain('Usuari');
 });
   
 });
