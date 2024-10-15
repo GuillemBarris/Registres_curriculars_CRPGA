@@ -25,4 +25,12 @@ describe('SdaComponent', () => {
     const div = compiled.querySelector('div');
     expect(div).toBeTruthy();
   });
+  it('should have an <a> tag inside the first div with correct content', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const div = compiled.querySelector('div');
+    const anchor = div?.querySelector('a');
+    expect(anchor).toBeTruthy();
+    expect(anchor?.innerHTML).toContain('⇦');
+});
+  
 });
