@@ -53,4 +53,14 @@ describe('SdaComponent', () => {
     expect(input).toBeTruthy();
     expect(input?.getAttribute('value')).toContain('Descripció');
   });
+  it('should create input Link', () => {
+    const div = compiled.querySelectorAll('div')[3];
+    const p = div.querySelectorAll('p')[0];
+    const input = div.querySelector('input');
+    expect(div).toBeTruthy();
+    expect(p).toBeTruthy();
+    expect(p.textContent).toContain('Link');
+    expect(input).toBeTruthy();
+    expect(input?.getAttribute('value')).toContain('Link');
+  });
 });
