@@ -23,12 +23,13 @@ describe('SdaComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should create the Html', () => {
+  it('should create the Header', () => {
     
     const div = compiled.querySelector('div');
     const p = div?.querySelector('p');
-    expect(div).toBeTruthy();
     const anchor = div?.querySelector('a');
+    expect(div).toBeTruthy();
+   
     expect(anchor).toBeTruthy();
     expect(anchor?.innerHTML).toContain('⇦');
     expect(p).toBeTruthy();
