@@ -58,11 +58,11 @@ describe('RegistresUComponent', () => {
 
       const images = fixture.nativeElement.querySelectorAll('img');
       images.forEach((image: { src: any; }, index: number) => {
-        if(index === 0) {expect(image.src).toContain('assets/img/user.png');}
-        else {
+        if (index === 0) {
+          expect(image.src).toContain('assets/img/user.png');
+        } else {
           expect(image.src).toContain('assets/img/registry.png');
         }
-        
-      });      
+      });
   });  
 });
