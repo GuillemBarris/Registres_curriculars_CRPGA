@@ -74,4 +74,16 @@ describe('SdaComponent', () => {
     expect(input?.getAttribute('type')).toBe('date');
    
   });
+  it('should create input End Date', () => {
+    const div = compiled.querySelectorAll('div')[5];
+    const p = div.querySelectorAll('p')[0];
+    const input = div.querySelector('input');
+    expect(div).toBeTruthy();
+    expect(p).toBeTruthy();
+    expect(p.textContent).toContain('Data fi');
+    expect(input).toBeTruthy();
+    expect(input?.getAttribute('type')).toBe('date');
+    
+
+  });
 });
