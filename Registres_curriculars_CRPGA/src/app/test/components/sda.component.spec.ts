@@ -20,4 +20,9 @@ describe('SdaComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should create the first div', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const div = compiled.querySelector('div');
+    expect(div).toBeTruthy();
+  });
 });
