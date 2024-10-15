@@ -86,6 +86,37 @@ describe('SdaComponent', () => {
     expect(input).toBeTruthy();
     expect(input?.getAttribute('value')).toContain('Link');
   });
-  
+
+  it('should create table with 2 columns', () => {
+    const table = compiled.querySelector('.vectors-table');
+    const th = table?.querySelectorAll('th');
+    expect(table).toBeTruthy();
+    expect(th?.length).toBe(2);
+    expect(th?.[0].textContent).toContain('Vectors');
+    expect(th?.[1]).toBeTruthy();
+  });
+
+  it('the table should have 7 rows', () => {
+    const table = compiled.querySelector('.vectors-table');
+    const tr = table?.querySelectorAll('tr');
+    expect(tr?.length).toBe(7);
+  });
+/*
+  it('the second column in all rows should contain a checkbox', () => {
+    const table = compiled.querySelector('.vectors-table');
+    const tr = table?.querySelectorAll('tr');
+    tr?.forEach((row, index) => {
+      if (index !== 0) {
+        const td = row.querySelectorAll('td');
+        const input = td[1].querySelector('input');
+        expect(input).toBeTruthy();
+        expect(input?.getAttribute('type')).toBe('checkbox');
+      } else {
+        const th = row.querySelectorAll('th');
+        expect(th[1]).toBeTruthy();
+      }
+    });
+  });
+  */
   
 });
