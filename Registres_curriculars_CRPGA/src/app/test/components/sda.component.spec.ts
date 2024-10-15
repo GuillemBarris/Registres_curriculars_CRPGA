@@ -63,5 +63,15 @@ describe('SdaComponent', () => {
     expect(input).toBeTruthy();
     expect(input?.getAttribute('value')).toContain('Link');
   });
-  
+  it('should create input Start Date', () => {
+    const div = compiled.querySelectorAll('div')[4];
+    const p = div.querySelectorAll('p')[0];
+    const input = div.querySelector('input');
+    expect(div).toBeTruthy();
+    expect(p).toBeTruthy();
+    expect(p.textContent).toContain('Data inici');
+    expect(input).toBeTruthy();
+    expect(input?.getAttribute('type')).toBe('date');
+   
+  });
 });
