@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { RegistresUComponent } from "./components/registres-u/registres-u.component";
 import { SdaComponent } from './components/sda/sda.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
