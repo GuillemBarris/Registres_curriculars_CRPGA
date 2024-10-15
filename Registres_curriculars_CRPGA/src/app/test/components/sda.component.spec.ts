@@ -36,5 +36,15 @@ describe('SdaComponent', () => {
     expect(p?.textContent).toContain('Usuari');
     
   });
+  it('should create input Title', () => {
+    const div = compiled.querySelectorAll('div')[1];
+    const p = div.querySelectorAll('p')[0];
+    const input = div.querySelector('input');
+    expect(div).toBeTruthy();
+    expect(p).toBeTruthy();
+    expect(p.textContent).toContain('Títol');
+    expect(input).toBeTruthy();
+    expect(input?.getAttribute('text')).toContain('Títol');
+  });
   
 });
