@@ -23,7 +23,7 @@ describe('SdaComponent', () => {
     expect(component).toBeTruthy();
   });
   it('should create the Header', () => {
-    const div = compiled.querySelector('div');
+    const div = compiled.querySelector('.header');
     const p = div?.querySelector('p');
     const anchor = div?.querySelector('a');
     expect(div).toBeTruthy();
@@ -34,7 +34,7 @@ describe('SdaComponent', () => {
     expect(p?.textContent).toContain('Usuari');
   });
   it('should create input Title', () => {
-    const div = compiled.querySelectorAll('div')[1];
+    const div = compiled.querySelectorAll('.content-input')[0];
     const p = div.querySelectorAll('p')[0];
     const input = div.querySelector('input');
     expect(div).toBeTruthy();
@@ -43,28 +43,8 @@ describe('SdaComponent', () => {
     expect(input).toBeTruthy();
     expect(input?.getAttribute('value')).toContain('Títol');
   });
-  it('should create input Description', () => {
-    const div = compiled.querySelectorAll('div')[2];
-    const p = div.querySelectorAll('p')[0];
-    const input = div.querySelector('input');
-    expect(div).toBeTruthy();
-    expect(p).toBeTruthy();
-    expect(p.textContent).toContain('Descripció');
-    expect(input).toBeTruthy();
-    expect(input?.getAttribute('value')).toContain('Descripció');
-  });
-  it('should create input Link', () => {
-    const div = compiled.querySelectorAll('div')[3];
-    const p = div.querySelectorAll('p')[0];
-    const input = div.querySelector('input');
-    expect(div).toBeTruthy();
-    expect(p).toBeTruthy();
-    expect(p.textContent).toContain('Link');
-    expect(input).toBeTruthy();
-    expect(input?.getAttribute('value')).toContain('Link');
-  });
   it('should create input Start Date', () => {
-    const div = compiled.querySelectorAll('div')[4];
+    const div = compiled.querySelectorAll('.content-input')[1];
     const p = div.querySelectorAll('p')[0];
     const input = div.querySelector('input');
     expect(div).toBeTruthy();
@@ -74,8 +54,18 @@ describe('SdaComponent', () => {
     expect(input?.getAttribute('type')).toBe('date');
    
   });
+  it('should create input Description', () => {
+    const div = compiled.querySelectorAll('.content-input')[2];
+    const p = div.querySelectorAll('p')[0];
+    const input = div.querySelector('input');
+    expect(div).toBeTruthy();
+    expect(p).toBeTruthy();
+    expect(p.textContent).toContain('Descripció');
+    expect(input).toBeTruthy();
+    expect(input?.getAttribute('value')).toContain('Descripció');
+  });
   it('should create input End Date', () => {
-    const div = compiled.querySelectorAll('div')[5];
+    const div = compiled.querySelectorAll('.content-input')[3];
     const p = div.querySelectorAll('p')[0];
     const input = div.querySelector('input');
     expect(div).toBeTruthy();
@@ -86,4 +76,16 @@ describe('SdaComponent', () => {
     
 
   });
+  it('should create input Link', () => {
+    const div = compiled.querySelectorAll('.content-input')[4];
+    const p = div.querySelectorAll('p')[0];
+    const input = div.querySelector('input');
+    expect(div).toBeTruthy();
+    expect(p).toBeTruthy();
+    expect(p.textContent).toContain('Link');
+    expect(input).toBeTruthy();
+    expect(input?.getAttribute('value')).toContain('Link');
+  });
+  
+  
 });
