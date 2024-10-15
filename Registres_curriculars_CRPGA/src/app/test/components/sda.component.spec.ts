@@ -44,7 +44,9 @@ describe('SdaComponent', () => {
     expect(p).toBeTruthy();
     expect(p.textContent).toContain('Títol');
     expect(input).toBeTruthy();
-    expect(input?.getAttribute('text')).toContain('Títol');
-  });
+    expect(input?.getAttribute('value')).toContain('Títol');
+
+   
+});
   
 });
