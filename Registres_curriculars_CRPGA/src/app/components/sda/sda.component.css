@@ -1,6 +1,10 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+html {
+    height: 100%;
+}
 html, body {
 margin: 0;
 padding: 0;
@@ -151,34 +155,11 @@ padding: 5%;
 
 .dropdown-content {
     width: 90%;
+    display: flex;
     flex-direction: row;
     background-color: black;
     overflow: hidden;
-    display: none; 
-  opacity: 0; 
-  transition: opacity 0.3s ease, max-height 0.3s ease; 
-  max-height: 0; 
 
-}
-
-.dropdown-content.ng-enter,
-.dropdown-content.ng-leave {
-  transition: max-height 0.3s ease;
-}
-
-.dropdown-content.ng-enter-active {
-  max-height: 100%; 
-  opacity: 1; 
-}
-
-.dropdown-content.ng-leave-active {
-  max-height: 0; 
-  opacity: 0; 
-}
-
-.flipped {
-  transform: rotate(180deg); 
-  transition: transform 0.3s ease; 
 }
 
 .dropdown-content-table {
@@ -274,6 +255,7 @@ padding: 5%;
 .content-column-DT table td {
     padding: 8px;
 }
+
 
 
 

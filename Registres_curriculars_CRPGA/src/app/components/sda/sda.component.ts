@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-sda',
   standalone: true,
-  imports: [  ],
+  imports: [ CommonModule ],
   templateUrl: './sda.component.html',
   styleUrl: './sda.component.css',
   
@@ -12,10 +12,10 @@ import { Component } from '@angular/core';
 
 export class SdaComponent {
 
-  isDropdownOpen = false;
+  isDropdownVisible = false;
 
   toggleDropdown() {
-    this.isDropdownOpen = !this.isDropdownOpen;
+    this.isDropdownVisible = !this.isDropdownVisible;
   }
 
 }

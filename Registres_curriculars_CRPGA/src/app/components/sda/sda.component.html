@@ -74,13 +74,13 @@
         <div class="dropdownfirst-element">1. Llengua Catalana i Castellana</div>
         <div class="dropdownsecond-element">0%</div>
         <div class="dropdownthird-element">
-            <button (click)="toggleDropdown()" [class.flipped]="isDropdownOpen">
+            <button (click)="toggleDropdown()">
                 <img src="assets/img/arrow-down.png" alt="Arrow Down">
             </button>
 
         </div>
     </div>
-    <div class="dropdown-content">
+    <div class="dropdown-content" *ngIf="isDropdownVisible">
         <table class="dropdown-content-table">
             <tr class="first-row-DT">
                 <th><div><p>Competencies Específiques</p><p>0/10</p></div></th>
