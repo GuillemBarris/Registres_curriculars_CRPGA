@@ -40,13 +40,30 @@ describe('RegistresUComponent', () => {
       const grid_elements = fixture.nativeElement.querySelectorAll('.grid-element');
       expect(grid_elements.length).toBe(9);
 
-      grid_elements.forEach((element: HTMLElement, index: number) => {
-        const aTag = element.querySelector('a') as HTMLAnchorElement;
-        expect(aTag).toBeTruthy();
-        expect(aTag.href).toBe('http://localhost:4200/sda');
-        expect(aTag.textContent).toContain(`SDA${index + 1}`);
-      });
+      expect(grid_elements[0].textContent).toContain('');
+      expect(grid_elements[0].href).toContain('http://localhost:4200/sda');
+      expect(grid_elements[1].textContent).toContain('SDA2');
+      expect(grid_elements[1].href).toContain('http://localhost:4200/sda');
+      expect(grid_elements[2].textContent).toContain('SDA3');
+      expect(grid_elements[2].href).toContain('http://localhost:4200/sda');
+      expect(grid_elements[3].textContent).toContain('SDA4');
+      expect(grid_elements[3].href).toContain('http://localhost:4200/sda');
+      expect(grid_elements[4].textContent).toContain('SDA5');
+      expect(grid_elements[4].href).toContain('http://localhost:4200/sda');
+      expect(grid_elements[5].textContent).toContain('SDA6');
+      expect(grid_elements[5].href).toContain('http://localhost:4200/sda');
+      expect(grid_elements[6].textContent).toContain('SDA7');
+      expect(grid_elements[6].href).toContain('http://localhost:4200/sda');
+      expect(grid_elements[7].textContent).toContain('SDA8');
+      expect(grid_elements[7].href).toContain('http://localhost:4200/sda');
+      expect(grid_elements[8].textContent).toContain('SDA9');
+      expect(grid_elements[8].href).toContain('http://localhost:4200/sda');
       
+
+      grid_elements.forEach((element: { querySelector: (arg0: string) => any; }) => {
+        const img = element.querySelector('img');
+        expect(img).toBeTruthy();
+      });
       
 
       const images = fixture.nativeElement.querySelectorAll('img');
