@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RegistresUComponent } from "./components/registres-u/registres-u.component";
 import { SdaComponent } from './components/sda/sda.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RegistresUComponent, SdaComponent],
+  imports: [RouterOutlet, RegistresUComponent, SdaComponent, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
