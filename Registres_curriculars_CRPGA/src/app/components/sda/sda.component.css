@@ -149,4 +149,131 @@ padding: 5%;
     width: 40px;
 }
 
+.dropdown-content {
+    width: 90%;
+    flex-direction: row;
+    background-color: black;
+    overflow: hidden;
+    display: none; 
+  opacity: 0; 
+  transition: opacity 0.3s ease, max-height 0.3s ease; 
+  max-height: 0; 
+
+}
+
+.dropdown-content.ng-enter,
+.dropdown-content.ng-leave {
+  transition: max-height 0.3s ease;
+}
+
+.dropdown-content.ng-enter-active {
+  max-height: 100%; 
+  opacity: 1; 
+}
+
+.dropdown-content.ng-leave-active {
+  max-height: 0; 
+  opacity: 0; 
+}
+
+.flipped {
+  transform: rotate(180deg); 
+  transition: transform 0.3s ease; 
+}
+
+.dropdown-content-table {
+    width: 49%;
+    border-collapse: collapse;
+    background-color: darkgrey;
+    table-layout: fixed;
+
+
+}
+.separator {
+    width: 2%;
+    background-color: black;
+    height: 100%;
+    display: block;
+}
+
+.first-row-DT {
+    font-size: 12px;
+    font-weight: bold;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    height: 60px;
+}
+
+
+
+.first-row-DT th {
+    padding: 8px;
+    width: 50%;
+}
+
+.first-row-DT th div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.content-row-DT:nth-child(odd) {
+    background-color: #ffeea9;
+}
+
+.content-row-DT:nth-child(even) {
+    background-color: #ffde59;
+}
+
+.title-column-DT {
+    font-size: 12px;
+    font-weight: bold;
+    width: 50%;
+    border: 1px solid black;
+    text-align: left;  
+      
+}
+
+.title-column-DT div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+    gap: 5px;
+}
+
+.content-column-DT {
+    font-size: 12px;
+    width: 100%;
+    border: 1px solid black;
+    text-align: left;
+    padding: 0px;
+}
+
+.content-column-DT table {
+    padding: 0px;
+    border-collapse: collapse; 
+    border-spacing: 0;
+    margin: 0px;
+}  
+
+.content-column-DT table tbody {
+    padding: 0px;
+    border-spacing: 0;
+    margin: 0px;
+} 
+
+.content-column-DT table tr {
+    border: 1px solid black; 
+    
+}
+.content-column-DT table td {
+    padding: 8px;
+}
+
+
 
