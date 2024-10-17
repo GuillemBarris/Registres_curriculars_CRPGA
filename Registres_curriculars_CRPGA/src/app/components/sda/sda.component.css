@@ -6,7 +6,7 @@ html {
     height: 100%;
 }
 html, body {
-margin: 0;
+margin: 0px !important;
 padding: 0;
 }
 
@@ -254,6 +254,10 @@ padding: 5%;
 }
 .content-column-DT table td {
     padding: 8px;
+}
+
+.button {
+z-index: 2;
 }
 
 
