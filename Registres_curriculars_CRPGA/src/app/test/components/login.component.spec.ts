@@ -20,4 +20,13 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('The user should authenticate correctly',() => {
+    expect(component.Autentification()).toBe(true);
+    
+  })
+  it('should button be clicked go to sda', () => {
+    const button = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+    expect(button.href).toContain('http://localhost:4200/sda');
+  })
 });
