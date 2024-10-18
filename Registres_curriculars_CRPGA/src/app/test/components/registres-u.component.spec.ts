@@ -56,8 +56,8 @@ describe('RegistresUComponent', () => {
       expect(grid_elements[6].href).toContain('http://localhost:4200/sda');
       expect(grid_elements[7].textContent).toContain('SDA8');
       expect(grid_elements[7].href).toContain('http://localhost:4200/sda');
-      expect(grid_elements[8].textContent).toContain('SDA9');
-      expect(grid_elements[8].href).toContain('http://localhost:4200/sda');
+      expect(grid_elements[8].textContent).toContain('Resum');
+      expect(grid_elements[8].href).toContain('http://localhost:4200/summary');
       
 
       grid_elements.forEach((element: { querySelector: (arg0: string) => any; }) => {
