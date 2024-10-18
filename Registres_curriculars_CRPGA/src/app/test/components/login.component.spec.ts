@@ -24,9 +24,8 @@ describe('LoginComponent', () => {
     expect(component.Autentification()).toBe(true);
     
   })
-  it('should button be clicked go to sda', () => {
-    const button = fixture.debugElement.nativeElement.querySelector('button');
-    button.click();
-    expect(button.href).toContain('http://localhost:4200/sda');
+  it('should a be clicked go to registres-u', () => {
+    const a = fixture.debugElement.nativeElement.querySelector('a');
+    expect(a.href).toContain('http://localhost:4200/registres-u');
   })
 });
