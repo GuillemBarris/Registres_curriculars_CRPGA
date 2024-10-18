@@ -4,6 +4,7 @@ import { RegistresUComponent } from './components/registres-u/registres-u.compon
 import { LoginComponent } from './components/login/login.component';
 
 export const routes: Routes = [
+    {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path: 'sda', component: SdaComponent},
     {path: 'registres-u', component: RegistresUComponent},
     {path: 'login', component: LoginComponent}
