@@ -1,1 +1,266 @@
-<p>summary works!</p>
+<div>
+    <div class="header">
+
+        <div class="header-subsection">
+            <a style="font-size: 40px;">&#8678;</a>    
+            <h1>1r Primària Grup A</h1>
+        </div>
+        <div class="header-subsection">
+          <p>Benvolgut, Usuari</p>
+          <img id="userIconId" src="assets/img/user.png" alt="User Icon">
+        </div>
+      </div>
+
+
+<div class="content">
+<div class="content-row">
+<div class="content-input">
+    <p>Global</p>
+    <input value="Global">
+</div>
+</div>
+<div class="content-row">
+<div class="content-input">
+    <p>Observacions</p>
+    <input value="Observacions">
+</div>
+</div>
+
+<table class="vectors-table">
+    <tr class="first-row">
+        <th>Vectors</th>
+        <th></th>
+        <th>0</th>
+        <th>/6</th>
+    </tr>
+    <tr>
+        <td>1. Aprenentatges competencials</td>
+        <td><input type="checkbox"></td>
+        <td>NT</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>2. Perspectiva de gènere</td>
+        <td><input type="checkbox"></td>
+        <td>NT</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>3. Qualitat de l'educació de les llengües</td>
+        <td><input type="checkbox"></td>
+        <td>NT</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>4. Benestar emocional</td>
+        <td><input type="checkbox"></td>
+        <td>NT</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>5. Universalitat del currículum</td>
+        <td><input type="checkbox"></td>
+        <td>NT</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>6. Ciutadania democràtica i consciència global</td>
+        <td><input type="checkbox"></td>
+        <td>NT</td>
+        <td>0</td>
+    </tr>
+</table>
+
+<div class="dropdown-container">
+    <div class="dropdown-top">
+        <div class="dropdownfirst-element">1. Llengua Catalana i Castellana</div>
+        <div class="dropdownsecond-element">0%</div>
+        <div class="dropdownthird-element">
+            <button (click)="toggleDropdown()">
+                <img src="assets/img/arrow-down.png" alt="Arrow Down">
+            </button>
+
+        </div>
+    </div>
+    <div class="dropdown-content" *ngIf="isDropdownVisible">
+        <table class="dropdown-content-table">
+            <tr class="first-row-DT">
+                <th><div><p>Competencies Específiques</p><p>0/10</p></div></th>
+                <th><div><p>Criteris d'avaluació</p><p>0/23</p></div></th> 
+                <th class="summary-column">0/23</th>
+                             
+            </tr>
+            <tr class="content-row-DT">
+                <td class="title-column-DT">
+                    <div>
+                        
+                        <p>1. Prendre consciència de la diversitat lingüística i cultural a partir del reconeixement de les llengües de l'alumnat i la realitat plurilingüe i pluricultural per afavorir la transferència lingüística, identificar i rebutjar estereotips i prejudicis lingüístics i valorar aquesta diversitat com a font de riquesa cultural.</p>
+                        <input type="checkbox">
+                    </div>
+                </td>
+                <td class="content-column-DT">
+                    <table>
+                        <tr>
+                            
+                            <td><p>1.1 Identificar les diferents llengües de l'entorn, inclosa la llengua de signes, i les seves variants dialectals, a través de la descripció i interpretació de les característiques fonamentals de les del seu entorn geogràfic, així com alguns trets dels dialectes i llengües familiars de l'alumnat.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            
+                            <td><p>1.2. Detectar i rebutjar, amb autonomia creixent i en contextos diversos, prejudicis i estereotips lingüístics, de gènere i culturals freqüents.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>  
+                        <tr>
+                            
+                            <td><p>1.3 Descriure, analitzar i valorar la pluralitat lingüística del món com a font de riquesa cultural, a partir de l'observació i comprensió de la realitat global.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>                      
+                    </table>
+                </td>
+                <td class="summary-column">NT  0</td>
+            </tr>
+            <tr class="content-row-DT">                
+                <td class="title-column-DT">
+                    <div>
+                        
+                        <p>2. Comprendre i interpretar textos orals i multimodals, i identificar el sentit general i la informació més rellevant, valorant, de manera progressivament autònoma, aspectes formals i de contingut bàsics per construir coneixement, formar-se opinió i eixamplar les possibilitats de gaudi i lleure.</p>
+                        <input type="checkbox">
+                    </div>
+                </td>
+                <td class="content-column-DT">
+                    <table>
+                        <tr>
+                            
+                            <td><p>2.1. Extreure i interpretar informació́ rellevant de produccions orals i multimodals formals provinents de diferents mitjans i situacions.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            
+                            <td><p>2.2. Reconèixer en produccions orals i multimodals formals les idees principals i les secundàries, els missatges explícits i implícits, valorar-ne el contingut i la forma (elements no verbals).</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>                        
+                    </table>
+                </td>
+                <td class="summary-column">NT  0</td>
+                             
+            </tr>
+            <tr class="content-row-DT">
+                <td class="title-column-DT">
+                    <div>
+                        
+                        <p>3. Produir textos orals i multimodals amb coherència, claredat i registre adequats, atenent les convencions pròpies dels diferents gèneres discursius, i participar en interaccions orals variades, amb autonomia, per expressar idees, sentiments, emocions i conceptes, construir coneixement i establir vincles personals.</p>
+                        <input type="checkbox">
+                    </div>
+                </td>
+                <td class="content-column-DT">
+                    <table>
+                        <tr>
+                            
+                            <td><p>3.1. Produir textos orals i multimodals de manera autònoma, coherent i fluida, amb preparació prèvia, en contextos formals senzills amb adequació de l’entonació, el to de veu i el gest a la situació i un us correcte de recursos verbals i no verbals amb suports audiovisuals.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            
+                            <td><p>3.2. Participar en interaccions orals espontànies i reglades, i respectar les normes de la cortesia lingüística, integrant en el propi discurs les opinions i punts de vista dels altres participants, i utilitzant el registre adequat i aplicant estratègies d'escolta activa i de gestió conversacional.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>                        
+                    </table>
+                </td>
+                <td class="summary-column">NT  0</td>
+
+
+            </tr>
+            
+        </table>
+        <div class="separator"></div>
+        <table class="dropdown-content-table">
+            <tr class="first-row-DT">
+                <th><div><p>Sabers (Categ.)</p><p>0/7</p></div></th>
+                <th><div><p>Sabers</p></div></th>  
+                <th class="summary-column">0/46</th>            
+            </tr>
+            <tr class="content-row-DT">
+                <td class="title-column-DT">
+                    <div>
+                        
+                        <p>1. Les llengües i els seus parlants.
+                        </p>
+                        <input type="checkbox">
+                    </div>
+                </td>
+                <td class="content-column-DT">
+                    <table>
+                        <tr>
+                            
+                            <td><p>1.1. Presa de consciència de la biografia lingüística personal i del mapa lingüístic de l’entorn geogràfic, de forma autònoma.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            
+                            <td><p>1.2. Explicació de la diversitat lingüística i cultural del món com a valor i eina d’aprenentatge.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>  
+                        <tr>
+                            
+                            <td><p>1.3. Posada en pràctica d’estratègies d’identificació de prejudicis i estereotips lingüístics i cerca de solucions en comunicacions orals, escrites i multimodals.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr> 
+                        <tr>
+                            
+                            <td><p>1.4. Ús d’un llenguatge no discriminatori i respectuós amb les diferències en la vida quotidiana.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>                     
+                    </table>
+                </td>
+                <td class="summary-column">NT  0</td>
+            </tr>
+            <tr class="content-row-DT">                
+                <td class="title-column-DT">
+                    <div>
+                        
+                        <p>2. Comunicació oral.</p>
+                        <input type="checkbox">
+                    </div>
+                </td>
+                <td class="content-column-DT">
+                    <table>
+                        <tr>
+                            
+                            <td><p>2.1. Interès per expressar-se oralment amb pronunciació i entonació adequades en totes les situacions.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            
+                            <td><p>2.2. Comprensió de textos orals en diferents contextos: activitats d’aula, situacions d’aprenentatge en qualsevol àrea, en la vida quotidiana i en mitjans de comunicació.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr> 
+                        <tr>
+                            
+                            <td><p>2.3. Anàlisi dels components del fet comunicatiu (situació, participants, propòsit comunicatiu, canal, registre) en qualsevol situació comunicativa.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            
+                            <td><p>2.4. Aplicació d’estratègies lingüístiques elementals de forma autònoma, en contextos formals, per dotar textos progressivament complexos d’adequació, coherència, cohesió i correcció.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr> 
+                        <tr>
+                            
+                            <td><p>2.5. Anàlisi d’elements bàsics de contingut (tema, fórmules fixes, lèxic, inferències d’informació) i forma (estructura, format, títol, imatges, tipografia) en les produccions orals.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            
+                            <td><p>2.6. Reproducció de textos orals memoritzats (cançons, poemes, dramatitzacions) en el marc de les propostes didàctiques d’aula.</p></td>
+                            <td><input type="checkbox"></td>
+                        </tr>                        
+                    </table>
+                </td>
+                <td class="summary-column">NT  0</td>
+        </table>
+    </div>
+</div>
+
+</div>
+
+</div>  
