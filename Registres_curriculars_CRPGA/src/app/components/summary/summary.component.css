@@ -1,0 +1,275 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    height: 100%;
+}
+html, body {
+margin: 0px !important;
+padding: 0;
+}
+
+.header {
+width: auto;
+padding-left: 5%;
+padding-right: 5%;
+padding-bottom: 2%;
+padding-top: 2%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+background-color: #ffde59;
+}
+
+.header h1 {
+font-size: 1.5em;
+margin: 0;
+}
+
+.header-subsection { 
+display: flex;
+flex-direction: row;
+align-items: left;
+gap: 20px;
+font-size: 20px;
+}
+
+.header-subsection img {
+width: 70px;
+}
+
+.content {
+padding: 5%;
+}
+
+.content-input {
+    display: flex;
+    flex-direction: row;
+    height: 30px;    
+    align-items: center;    
+}
+
+.content-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;    
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom:20px;
+    
+}
+
+.content-input input {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    width: 450px;
+}
+
+.content-input p {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: black;
+    color: white;
+    width: 100px;
+}
+
+.summary-column {
+    width: 50px !important;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.vectors-table {
+    margin-top: 40px;
+    width: 50%;
+    border-collapse: collapse;
+}
+
+.vectors-table th {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.vectors-table td {
+    border: 1px solid black;
+    background-color: #ffeea9 ;
+    padding: 8px;
+    text-align: left;
+}
+
+
+.vectors-table tr:nth-child(even) td {
+    background-color: #ffde59;
+}
+
+.dropdown-top {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-content: center; 
+    margin-top: 40px;
+}
+
+.dropdownfirst-element {
+    width: 60%;
+    background-color: #ffde59;
+    border: 2px solid black;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px 20px 20px 20px;
+}
+
+.dropdownsecond-element {
+    width: 20%;
+    background-color: white;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.dropdownthird-element {
+    width: 20%;
+    background-color: #ffde59;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdownthird-element button {
+    background-color: transparent;
+    border: none;
+
+}
+
+.dropdownthird-element img {
+    width: 40px;
+}
+
+.dropdown-content {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    overflow: hidden;
+
+}
+
+.dropdown-content-table {
+    width: 49%;
+    border-collapse: collapse;
+    background-color: darkgrey;
+    table-layout: fixed;
+
+
+}
+.separator {
+    width: 2%;
+    background-color: black;
+    height: 100%;
+    display: block;
+}
+
+.first-row-DT {
+    font-size: 12px;
+    font-weight: bold;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    height: 60px;
+}
+
+
+
+.first-row-DT th {
+    padding: 8px;
+    width: 50%;
+}
+
+.first-row-DT th div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.content-row-DT {
+    height: 300px;
+}
+
+.content-row-DT:nth-child(odd) {
+    background-color: #ffeea9;
+}
+
+.content-row-DT:nth-child(even) {
+    background-color: #ffde59;
+}
+
+.title-column-DT {
+    font-size: 12px;
+    font-weight: bold;
+    width: 50%;
+    border: 1px solid black;
+    text-align: left;  
+      
+}
+
+.title-column-DT div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+    gap: 5px;
+}
+
+.content-column-DT {
+    font-size: 12px;
+    width: 100%;
+    border: 1px solid black;
+    text-align: left;
+    padding: 0px;
+}
+
+.content-column-DT table {
+    padding: 0px;
+    border-collapse: collapse; 
+    border-spacing: 0;
+    margin: 0px;
+}  
+
+.content-column-DT table tbody {
+    padding: 0px;
+    border-spacing: 0;
+    margin: 0px;
+} 
+
+.content-column-DT table tr {
+    border: 1px solid black; 
+    
+}
+.content-column-DT table td {
+    padding: 8px;
+}
+
+.button {
+z-index: 2;
+}
+
+
+
+
