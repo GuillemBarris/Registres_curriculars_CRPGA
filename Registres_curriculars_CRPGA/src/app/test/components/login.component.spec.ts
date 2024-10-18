@@ -20,4 +20,9 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('The user should authenticate correctly',() => {
+    expect(component.Autentification()).toBe(true);
+    
+  })
+  
 });
