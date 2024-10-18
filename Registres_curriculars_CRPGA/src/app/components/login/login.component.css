@@ -10,8 +10,8 @@ padding: 0;
 width: auto;
 padding-left: 5%;
 padding-right: 5%;
-padding-bottom: 2%;
-padding-top: 2%;
+padding-bottom: 3%;
+padding-top: 3%;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
@@ -19,7 +19,18 @@ align-items: center;
 background-color: #ffde59;
 }
 .content {
-    padding: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .content img {
+        width: 300px;
+        margin-bottom: 20px;
     }
     
     .content-input {
@@ -32,7 +43,7 @@ background-color: #ffde59;
     .content-row {
         width: 100%;
         display: flex;
-        flex-direction: row;    
+        flex-direction: column;    
         align-items: center;
         justify-content: space-between;
         margin-top: 20px;
@@ -54,5 +65,25 @@ background-color: #ffde59;
         padding-bottom: 5px;
         background-color: black;
         color: white;
-        width: 80px;
+        width: 100px;
+    }
+
+    .login-button {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: #ffde59;
+        color: black;
+        border: 2px solid black;
+        width: 100px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .login-button:hover {
+        background-color: black;
+        color: white;
     }
