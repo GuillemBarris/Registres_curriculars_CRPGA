@@ -26,7 +26,7 @@ describe('RegistresUComponent', () => {
       expect(h1.textContent).toBe('1r Primària Grup A');
 
       const greeting = fixture.nativeElement.querySelector('p');
-      expect(greeting.textContent).toBe('Benvolgut, Usuari');
+      expect(greeting.textContent).toBe('Benvolgut, Eric');
 
       const user_icon = fixture.nativeElement.querySelector('img');
       expect(user_icon.src).toContain('assets/img/user.png');
