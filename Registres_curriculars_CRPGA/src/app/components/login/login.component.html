@@ -1,15 +1,13 @@
 <body>
     <div class="header">
 
-    </div>
-
-    
+    </div>    
     <div>
         <div class="content">
             <img src="assets/img/user.png" alt="User Icon">
             <div class="content-row">
                 <div class="content-input">
-                    <p>Correru</p>
+                    <p>Correu</p>
                     <input value="Correu">
                 </div>
             </div>
@@ -20,6 +18,36 @@
                 </div>
             </div>
             <a href="http://localhost:4200/registres-u" class="login-button"> Entrar </a>
+
+            <div id="g_id_onload"
+     data-client_id="843785544318-q6aq282t6fp30ooq8576nua88tp4nvmi.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-callback="handleOauthResponse"
+     data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="rectangular"
+     data-theme="filled_blue"
+     data-text="signin_with"
+     data-size="large"
+     data-logo_alignment="left">
+</div>
+<script>
+    function decodeJWTToken(token){
+      return JSON.parse(atob(token.split(".")[1]))
+    }
+    function handleOauthResponse(response){
+      const responsePayload = decodeJWTToken(response.credential)
+      console.log(responsePayload)
+      sessionStorage.setItem('loggedinUser',JSON.stringify(responsePayload))
+      window.location('/login') 
+    }
+  </script>
+
+            
         </div>
     </div>
 </body>

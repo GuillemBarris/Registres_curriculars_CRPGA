@@ -23,9 +23,37 @@ describe('LoginComponent', () => {
   it('The user should authenticate correctly',() => {
     expect(component.Autentification()).toBe(true);
     
-  })
+  });
   it('should a be clicked go to registres-u', () => {
     const a = fixture.debugElement.nativeElement.querySelector('a');
     expect(a.href).toContain('http://localhost:4200/registres-u');
-  })
-});
+  });
+
+  it('should have the google login interface g_id_onload', () => {
+    const div = fixture.nativeElement.querySelector('div');
+    expect(div.id).toBe('g_id_onload');
+    const div2 = fixture.nativeElement.querySelector('div');
+    expect(div2.className).toBe('g_id_signin');
+  });
+
+  it('interface should have all the correct attributes', () => {
+    const div = fixture.nativeElement.querySelector('div');
+    expect(div.getAttribute('data-client_id')).toBe('843785544318-q6aq282t6fp30ooq8576nua88tp4nvmi.apps.googleusercontent.com'); 
+    const Hdiv = fixture.nativeElement.querySelector('div');
+    expect(Hdiv.getAttribute('data-callback')).toBe('handleOauthResponse');
+  });
+  
+  it('should have the sign in script', () => {
+    const script = fixture.nativeElement.querySelector('script');
+    expect(script.innerHTML).toContain('function decodeJWTToken(token){');
+    expect(script.innerHTML).toContain('function handleOauthResponse(response){');
+  });
+  it('should have the correct script attributes', () => {
+    const script = fixture.nativeElement.querySelector('script');
+    expect(script.getAttribute('src')).toBe('https://accounts.google.com/gsi/client');
+    expect(script.getAttribute('data-client_id')).toBe('843785544318-q6aq282t6fp30ooq8576nua88tp4nvmi.apps.googleusercontent.com');
+    expect(script.getAttribute('data-callback')).toBe('handleOauthResponse');
+  });    
+  });
+
+
