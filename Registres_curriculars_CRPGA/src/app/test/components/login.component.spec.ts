@@ -42,7 +42,18 @@ describe('LoginComponent', () => {
     const Hdiv = fixture.nativeElement.querySelector('div');
     expect(Hdiv.getAttribute('data-callback')).toBe('handleOauthResponse');
   });
-    
+  
+  it('should have the sign in script', () => {
+    const script = fixture.nativeElement.querySelector('script');
+    expect(script.innerHTML).toContain('function decodeJWTToken(token){');
+    expect(script.innerHTML).toContain('function handleOauthResponse(response){');
+  });
+  it('should have the correct script attributes', () => {
+    const script = fixture.nativeElement.querySelector('script');
+    expect(script.getAttribute('src')).toBe('https://accounts.google.com/gsi/client');
+    expect(script.getAttribute('data-client_id')).toBe('843785544318-q6aq282t6fp30ooq8576nua88tp4nvmi.apps.googleusercontent.com');
+    expect(script.getAttribute('data-callback')).toBe('handleOauthResponse');
+  });    
   });
 
 
