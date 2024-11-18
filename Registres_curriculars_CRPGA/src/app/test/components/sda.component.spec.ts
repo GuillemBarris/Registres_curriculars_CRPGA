@@ -31,7 +31,7 @@ describe('SdaComponent', () => {
     expect(anchor).toBeTruthy();
     expect(anchor?.innerHTML).toContain('⇦');
     expect(p).toBeTruthy();
-    expect(p?.textContent).toContain('Usuari');
+    expect(p?.textContent).toContain('Eric');
   });
   it('should create input Title', () => {
     const div = compiled.querySelectorAll('.content-input')[0];
