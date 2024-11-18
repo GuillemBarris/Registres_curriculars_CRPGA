@@ -35,6 +35,17 @@
      data-size="large"
      data-logo_alignment="left">
 </div>
+<script>
+    function decodeJWTToken(token){
+      return JSON.parse(atob(token.split(".")[1]))
+    }
+    function handleOauthResponse(response){
+      const responsePayload = decodeJWTToken(response.credential)
+      console.log(responsePayload)
+      sessionStorage.setItem('loggedinUser',JSON.stringify(responsePayload))
+      window.location('/login') 
+    }
+  </script>
 
             
         </div>
