@@ -36,4 +36,12 @@ describe('UserSchoolComponent', () => {
     fixture.detectChanges();
     expect(emailInput.nativeElement.value).toBe('eric@gmail.com');
   });
+
+  it('should add new Class', () => {
+    const classInput = fixture.debugElement.query(By.css('input[placeholder="Classe"]'));
+    classInput.nativeElement.value = '1r';
+    classInput.nativeElement.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    expect(classInput.nativeElement.value).toBe('1r');
+  })
 });
