@@ -28,8 +28,8 @@ describe('UserSchoolComponent', () => {
     expect(classInput.nativeElement.value).toBe('Eric');
     
   });
-  it('should add new Email', () => {
-    const classInput = fixture.debugElement.query(By.css('input[placeholder="Email"]'));
+  it('should add new Emai', () => {
+    const classInput = fixture.debugElement.query(By.css('input[placeholder="Correu"]'));
     classInput.nativeElement.value = 'eric@gmail.com';
     classInput.nativeElement.dispatchEvent(new Event('input'));
     fixture.detectChanges();
