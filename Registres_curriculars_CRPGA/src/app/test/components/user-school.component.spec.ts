@@ -55,10 +55,10 @@ describe('UserSchoolComponent', () => {
 
   it('should add new Subject', () => {
     const schoolSelect = fixture.debugElement.query(By.css('select[placeholder="Assignatura"]'));
-    schoolSelect.nativeElement.value = 'Assignatura';
+    schoolSelect.nativeElement.value = 'Matemàtiques';
     schoolSelect.nativeElement.dispatchEvent(new Event('change'));
     fixture.detectChanges();
-    expect(schoolSelect.nativeElement.value).toBe('Assignatura');
+    expect(schoolSelect.nativeElement.value).toBe('Matemàtiques');
   })
 
 });
