@@ -44,6 +44,7 @@ describe('UserSchoolComponent', () => {
     fixture.detectChanges();
     expect(classSelect.nativeElement.value).toBe('1r');
   })
+
   it('should add new Group',()=> {
    const grupSelect = fixture.debugElement.query(By.css('select[placeholder="Grup"]'));
     grupSelect.nativeElement.value = 'A';
@@ -51,4 +52,13 @@ describe('UserSchoolComponent', () => {
     fixture.detectChanges();
     expect(grupSelect.nativeElement.value).toBe('A');
   })
+
+  it('should add new School', () => {
+    const schoolSelect = fixture.debugElement.query(By.css('select[placeholder="Escola"]'));
+    schoolSelect.nativeElement.value = 'Escola';
+    schoolSelect.nativeElement.dispatchEvent(new Event('change'));
+    fixture.detectChanges();
+    expect(schoolSelect.nativeElement.value).toBe('Escola');
+  })
+
 });
