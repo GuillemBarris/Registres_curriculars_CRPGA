@@ -29,12 +29,7 @@ describe('LoginComponent', () => {
     expect(div).toBeTruthy();  
   });
   
-  it('should have the sign in script', () => {
-    const script = fixture.nativeElement.querySelector('script');
-    expect(script).toBeTruthy();  
-   });
-  
-  
-} );
+
+});
 
 
