@@ -21,7 +21,7 @@ describe('UserSchoolComponent', () => {
     expect(component).toBeTruthy();
   });
   it('should add new Name', async () => {
-    const classInput = fixture.debugElement.query(By.css('input[placeholder="Name"]'));
+    const classInput = fixture.debugElement.query(By.css('input[placeholder="Nom"]'));
     classInput.nativeElement.value = 'Eric';
     classInput.nativeElement.dispatchEvent(new Event('input'));
     fixture.detectChanges();
