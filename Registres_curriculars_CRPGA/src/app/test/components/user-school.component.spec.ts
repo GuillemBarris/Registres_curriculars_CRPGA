@@ -20,21 +20,20 @@ describe('UserSchoolComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
   it('should add new Name', () => {
-    const classInput = fixture.debugElement.query(By.css('input[placeholder="Nom"]'));
-    classInput.nativeElement.value = 'Eric';
-    classInput.nativeElement.dispatchEvent(new Event('input'));
+    const nameInput = fixture.debugElement.query(By.css('input[placeholder="Nom"]'));
+    nameInput.nativeElement.value = 'Eric';
+    nameInput.nativeElement.dispatchEvent(new Event('input'));
     fixture.detectChanges();
-    expect(classInput.nativeElement.value).toBe('Eric');
-    
+    expect(nameInput.nativeElement.value).toBe('Eric');
   });
-  it('should add new Emai', () => {
-    const classInput = fixture.debugElement.query(By.css('input[placeholder="Correu"]'));
-    classInput.nativeElement.value = 'eric@gmail.com';
-    classInput.nativeElement.dispatchEvent(new Event('input'));
+
+  it('should add new Email', () => {
+    const emailInput = fixture.debugElement.query(By.css('input[placeholder="Correu"]'));
+    emailInput.nativeElement.value = 'eric@gmail.com';
+    emailInput.nativeElement.dispatchEvent(new Event('input'));
     fixture.detectChanges();
-    expect(classInput.nativeElement.value).toBe('eric@gmail.com');
+    expect(emailInput.nativeElement.value).toBe('eric@gmail.com');
   });
- 
-  
 });
