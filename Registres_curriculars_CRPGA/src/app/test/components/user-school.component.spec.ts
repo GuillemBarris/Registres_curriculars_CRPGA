@@ -43,7 +43,7 @@ describe('UserSchoolComponent', () => {
     classSelect.nativeElement.dispatchEvent(new Event('change'));
     fixture.detectChanges();
     expect(classSelect.nativeElement.value).toBe('1r');
-  })
+  });
 
   it('should add new Group',()=> {
    const grupSelect = fixture.debugElement.query(By.css('select[placeholder="Grup"]'));
@@ -51,7 +51,7 @@ describe('UserSchoolComponent', () => {
     grupSelect.nativeElement.dispatchEvent(new Event('change'));
     fixture.detectChanges();
     expect(grupSelect.nativeElement.value).toBe('A');
-  })
+  });
 
   it('should add new Subject', () => {
     const schoolSelect = fixture.debugElement.query(By.css('select[placeholder="Assignatura"]'));
@@ -59,6 +59,14 @@ describe('UserSchoolComponent', () => {
     schoolSelect.nativeElement.dispatchEvent(new Event('change'));
     fixture.detectChanges();
     expect(schoolSelect.nativeElement.value).toBe('Matemàtiques');
+  });
+
+  it('should create new Class when button is clicked', () => {
+    const createButton = fixture.debugElement.query(By.css('button[class="clicked"]'));
+    spyOn(component, 'createNewClass');
+    createButton.nativeElement.click();
+    fixture.detectChanges();
+    expect(component.createNewClass).toHaveBeenCalled();
   })
 
 });
