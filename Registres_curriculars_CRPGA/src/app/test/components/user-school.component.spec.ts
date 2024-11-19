@@ -45,10 +45,10 @@ describe('UserSchoolComponent', () => {
     expect(classSelect.nativeElement.value).toBe('1r');
   })
   it('should add new Group',()=> {
-    const groupInput = fixture.debugElement.query(By.css('input[placeholder="Grup"]'));
-    groupInput.nativeElement.value = 'A';
-    groupInput.nativeElement.dispatchEvent(new Event('input'));
+   const grupSelect = fixture.debugElement.query(By.css('select[placeholder="Grup"]'));
+    grupSelect.nativeElement.value = 'A';
+    grupSelect.nativeElement.dispatchEvent(new Event('change'));
     fixture.detectChanges();
-    expect(groupInput.nativeElement.value).toBe('A');
+    expect(grupSelect.nativeElement.value).toBe('A');
   })
 });
