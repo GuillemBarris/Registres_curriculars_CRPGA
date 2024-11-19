@@ -38,11 +38,11 @@ describe('UserSchoolComponent', () => {
   });
 
   it('should add new Class', () => {
-    const classInput = fixture.debugElement.query(By.css('input[placeholder="Classe"]'));
-    classInput.nativeElement.value = '1r';
-    classInput.nativeElement.dispatchEvent(new Event('input'));
+    const classSelect = fixture.debugElement.query(By.css('select[placeholder="Classe"]'));
+    classSelect.nativeElement.value = '1r';
+    classSelect.nativeElement.dispatchEvent(new Event('change'));
     fixture.detectChanges();
-    expect(classInput.nativeElement.value).toBe('1r');
+    expect(classSelect.nativeElement.value).toBe('1r');
   })
   it('should add new Group',()=> {
     const groupInput = fixture.debugElement.query(By.css('input[placeholder="Grup"]'));
