@@ -1,49 +1,61 @@
 import { TestBed } from '@angular/core/testing';
-
-import { DatabaseService } from './database.service';
 import { LoginComponent } from '../components/login/login.component';
+import { DatabaseService } from './database.service';
+import { provideHttpClient } from '@angular/common/http';
+import { of } from 'rxjs';
 
 describe('DatabaseService', () => {
   let service: DatabaseService;
-  let component: any; // Replace 'any' with the actual component type if known
+  let component: LoginComponent;
 
   beforeEach(() => {
-    service = TestBed.inject(DatabaseService);
-    component = TestBed.createComponent(LoginComponent).componentInstance; // Replace 'YourComponent' with the actual component class
-    service = TestBed.inject(DatabaseService);
+    TestBed.configureTestingModule({
+      imports: [LoginComponent], 
+      providers: [
+        DatabaseService,              
+        provideHttpClient(),          
+      ]
+    });
+
+    service = TestBed.inject(DatabaseService); 
+    component = TestBed.createComponent(LoginComponent).componentInstance; 
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(service).toBeTruthy(); 
   });
 
   it('should handle OAuth response and redirect correctly', () => {
     spyOn(component, 'decodeJWTToken').and.returnValue({ email: 'user1@example.com' });
-    spyOn(component, 'isUserRegistered').and.returnValue(true);
-  
-    const locationSpy = jasmine.createSpy();
+    spyOn(service, 'isUserRegistered').and.returnValue(of(true));
+
+    // Mocking window.location using Object.defineProperty
+    const locationSpy = jasmine.createSpyObj('Location', ['assign']);
     Object.defineProperty(window, 'location', {
-      value: { href: locationSpy }
+      value: locationSpy,
+      writable: true // Ensure it can be assigned in the test
     });
-  
+
     const response = { credential: 'dummy_token' };
     component.handleOauthResponse(response);
-  
-    expect(locationSpy).toHaveBeenCalledWith('/registres-u');
+
+    expect(locationSpy.assign).toHaveBeenCalledWith('/registres-u');
   });
-  
+
   it('should handle OAuth response and redirect to register if user is not registered', () => {
     spyOn(component, 'decodeJWTToken').and.returnValue({ email: 'newuser@example.com' });
-    spyOn(component, 'isUserRegistered').and.returnValue(false);
-  
-    const locationSpy = jasmine.createSpy();
+    spyOn(service, 'isUserRegistered').and.returnValue(of(false));
+
+    // Mocking window.location using Object.defineProperty
+    const locationSpy = jasmine.createSpyObj('Location', ['assign']);
     Object.defineProperty(window, 'location', {
-      value: { href: locationSpy }
+      value: locationSpy,
+      writable: true // Ensure it can be assigned in the test
     });
-  
+
     const response = { credential: 'dummy_token' };
     component.handleOauthResponse(response);
-  
-    expect(locationSpy).toHaveBeenCalledWith('/register');
+
+    expect(locationSpy.assign).toHaveBeenCalledWith('/register');
   });
 });

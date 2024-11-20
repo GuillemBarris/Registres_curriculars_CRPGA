@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginComponent } from '../../components/login/login.component';
+import { provideHttpClient } from '@angular/common/http';  // Use provideHttpClient instead of HttpClientModule
+import { DatabaseService } from '../../services/database.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -7,7 +9,11 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoginComponent]
+      imports: [LoginComponent],      // Declare LoginComponent here
+      providers: [
+        provideHttpClient(),               // Provide HttpClient using the new approach
+        DatabaseService                    // Provide DatabaseService
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
@@ -44,10 +50,6 @@ describe('LoginComponent', () => {
     const decoded = component.decodeJWTToken(token);
     expect(decoded.name).toBe('John Doe');
   });
-
- 
-
-
 
   it('should have the google login interface g_id_onload', () => {
     const div = fixture.nativeElement.querySelector('.g_id_signin');
