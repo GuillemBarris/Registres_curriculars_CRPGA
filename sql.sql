@@ -8,3 +8,12 @@ CREATE TABLE Users (
     PRIMARY KEY (email)
 );
 
+CREATE TABLE User_School_Group(
+    teacher VARCHAR(50) NOT NULL,
+    school VARCHAR(50) NOT NULL,
+    grade VARCHAR(50) NOT NULL,
+    "group" VARCHAR(50) NOT NULL,
+    subject VARCHAR(50) NOT NULL,
+    PRIMARY KEY (teacher, school, grade, group, Subject),
+    FOREIGN KEY (teacher) REFERENCES Users(email),
+)
