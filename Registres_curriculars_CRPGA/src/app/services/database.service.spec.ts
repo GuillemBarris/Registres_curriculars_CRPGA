@@ -29,11 +29,10 @@ describe('DatabaseService', () => {
     spyOn(component, 'decodeJWTToken').and.returnValue({ email: 'user1@example.com' });
     spyOn(service, 'isUserRegistered').and.returnValue(of(true));
 
-    // Mocking window.location using Object.defineProperty
     const locationSpy = jasmine.createSpyObj('Location', ['assign']);
     Object.defineProperty(window, 'location', {
       value: locationSpy,
-      writable: true // Ensure it can be assigned in the test
+      writable: true 
     });
 
     const response = { credential: 'dummy_token' };
@@ -46,11 +45,10 @@ describe('DatabaseService', () => {
     spyOn(component, 'decodeJWTToken').and.returnValue({ email: 'newuser@example.com' });
     spyOn(service, 'isUserRegistered').and.returnValue(of(false));
 
-    // Mocking window.location using Object.defineProperty
     const locationSpy = jasmine.createSpyObj('Location', ['assign']);
     Object.defineProperty(window, 'location', {
       value: locationSpy,
-      writable: true // Ensure it can be assigned in the test
+      writable: true 
     });
 
     const response = { credential: 'dummy_token' };

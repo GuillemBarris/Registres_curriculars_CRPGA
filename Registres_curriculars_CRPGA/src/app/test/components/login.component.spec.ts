@@ -9,10 +9,10 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoginComponent],      // Declare LoginComponent here
+      imports: [LoginComponent],      
       providers: [
-        provideHttpClient(),               // Provide HttpClient using the new approach
-        DatabaseService                    // Provide DatabaseService
+        provideHttpClient(),              
+        DatabaseService                    
       ],
     }).compileComponents();
 
