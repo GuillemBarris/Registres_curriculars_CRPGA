@@ -1,17 +1,26 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginComponent } from '../../components/login/login.component';
+import { of } from 'rxjs';
+import { DatabaseService } from '../../services/database.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let databaseService: jasmine.SpyObj<DatabaseService>;
 
   beforeEach(async () => {
+    const spy = jasmine.createSpyObj('DatabaseService', ['isUserRegistered']);
+
     await TestBed.configureTestingModule({
-      imports: [LoginComponent]
+      imports: [LoginComponent],
+      providers: [
+        { provide: DatabaseService, useValue: spy }
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+    databaseService = TestBed.inject(DatabaseService) as jasmine.SpyObj<DatabaseService>;
     fixture.detectChanges();
   });
 
@@ -45,14 +54,9 @@ describe('LoginComponent', () => {
     expect(decoded.name).toBe('John Doe');
   });
 
-  it('should check if user is registered', () => {
-    const email = 'user1@example.com';
-    expect(component.isUserRegistered(email)).toBe(true);
-  });
-
   it('should handle OAuth response and redirect correctly', () => {
     spyOn(component, 'decodeJWTToken').and.returnValue({ email: 'user1@example.com' });
-    spyOn(component, 'isUserRegistered').and.returnValue(true);
+    databaseService.isUserRegistered.and.returnValue(of(true));
   
     const originalLocation = window.location.href;
     const locationSpy = spyOnProperty(window.location, 'href', 'set').and.callFake((url: string) => {
@@ -68,7 +72,7 @@ describe('LoginComponent', () => {
   
   it('should handle OAuth response and redirect to register if user is not registered', () => {
     spyOn(component, 'decodeJWTToken').and.returnValue({ email: 'newuser@example.com' });
-    spyOn(component, 'isUserRegistered').and.returnValue(false);
+    databaseService.isUserRegistered.and.returnValue(of(false));
   
     const originalLocation = window.location.href;
     const locationSpy = spyOnProperty(window.location, 'href', 'set').and.callFake((url: string) => {
@@ -81,7 +85,7 @@ describe('LoginComponent', () => {
     expect(locationSpy).toHaveBeenCalledWith('/register');
     window.location.href = originalLocation; 
   });
-  
+
   it('The user should authenticate correctly', () => {
     expect(component.Autentification()).toBe(true);
   });
