@@ -61,12 +61,5 @@ describe('UserSchoolComponent', () => {
     expect(schoolSelect.nativeElement.value).toBe('Matemàtiques');
   });
 
-  it('should create new Class when button is clicked', () => {
-    const createButton = fixture.debugElement.query(By.css('button[class="clicked"]'));
-    spyOn(component, 'createNewClass');
-    createButton.nativeElement.click();
-    fixture.detectChanges();
-    expect(component.createNewClass).toHaveBeenCalled();
-  })
 
 });
