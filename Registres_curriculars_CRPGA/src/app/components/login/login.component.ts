@@ -1,42 +1,50 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { DatabaseService } from '../../services/database.service';
 
 @Component({
-    selector: 'app-login',
-    standalone: true,
-    imports: [],
-    templateUrl: './login.component.html',
-    styleUrl: './login.component.css'
+  selector: 'app-login',
+  standalone: true,
+  imports: [], 
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'], 
 })
-
-/*
-Database credentials:
-IP: 172.23.1.7
-User: sa
-Pass: G5m1i128
-*/
-
 export class LoginComponent {
-    constructor(private databaseService: DatabaseService) {}
-  
-    Autentification() {
-      return true;
-    }
-  
-    handleOauthResponse(response: any) {
+  constructor(private databaseService: DatabaseService, private router: Router) {}
+
+  handleOauthResponse(response: any): void {
+    try {
       const responsePayload = this.decodeJWTToken(response.credential);
-      console.log(responsePayload);
+      console.log('Decoded JWT Payload:', responsePayload);
+
       sessionStorage.setItem('loggedinUser', JSON.stringify(responsePayload));
-      this.databaseService.isUserRegistered(responsePayload.email).subscribe((isRegistered) => {
-        if (isRegistered) {
-          window.location.href = '/registres-u';
-        } else {
-          window.location.href = '/register';
-        }
+
+      this.databaseService.isUserRegistered(responsePayload.email).subscribe({
+        next: (isRegistered) => {
+          if (isRegistered) {
+            this.router.navigate(['/registres-u']);
+          } else {
+            this.router.navigate(['/register']);
+          }
+        },
+        error: (err) => {
+          console.error('Error checking user registration:', err);
+          alert('An error occurred. Please try again later.');
+        },
       });
-    }
-  
-    decodeJWTToken(token: string) {
-      return JSON.parse(atob(token.split(".")[1]));
+    } catch (error) {
+      console.error('Error handling OAuth response:', error);
+      alert('Invalid login response. Please try again.');
     }
   }
+
+   decodeJWTToken(token: string): any {
+    try {
+      const base64Payload = token.split('.')[1];
+      const payload = atob(base64Payload);
+      return JSON.parse(payload);
+    } catch (error) {
+      throw new Error('Invalid JWT token format.');
+    }
+  }
+}
