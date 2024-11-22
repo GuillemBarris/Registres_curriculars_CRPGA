@@ -1,0 +1,12 @@
+const config = {
+    user: 'sa',
+    password: 'G5m1i128',
+    server: '172.23.1.23',
+    database: 'Registres_Curriculars',
+    options: {
+        encrypt: true, 
+        trustServerCertificate: true 
+    }
+};
+
+export default config;
