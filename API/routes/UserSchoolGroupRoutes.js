@@ -1,9 +1,10 @@
 
 import { Router } from "express";
-import { createUserSchoolGroup } from '../controllers/UserSchoolGroupController.js';
+import { createUserSchoolGroup, getGroup } from '../controllers/UserSchoolGroupController.js';
 
 const UserSchoolGroup = Router();
 
 UserSchoolGroup.post("/createUserSchoolGroup/", createUserSchoolGroup);
+UserSchoolGroup.get("/getGroup/", getGroup);
 
 export default UserSchoolGroup;
