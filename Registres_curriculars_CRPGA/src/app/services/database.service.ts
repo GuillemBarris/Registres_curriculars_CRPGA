@@ -12,7 +12,7 @@ export class DatabaseService {
   constructor(private http: HttpClient) {}
 
   isUserRegistered(email: string): Observable<boolean> {
-    const url = `${this.dbUrl}/getAllUsers`;
+    const url = `${this.dbUrl}/getUserbyEmail/`;
     const params = new HttpParams().set('email', email);
 
 
