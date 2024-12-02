@@ -13,7 +13,7 @@ CREATE TABLE User_School_Group(
     school VARCHAR(50) NOT NULL,
     grade VARCHAR(50) NOT NULL,
     "group" VARCHAR(50) NOT NULL,
-    subject VARCHAR(50) NOT NULL,
-    PRIMARY KEY (teacher, school, grade, group, Subject),
+    "subject" VARCHAR(50) NOT NULL,
+    PRIMARY KEY (teacher, school, grade, "group", "subject"),
     FOREIGN KEY (teacher) REFERENCES Users(email),
 )

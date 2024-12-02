@@ -11,7 +11,6 @@ export const CreateUser  = async (req, res) => {
             .input('type', sql.VarChar, type)
             .query('USE Registres_Curriculars; INSERT INTO Users (name, email, type) VALUES (@name, @email, @type)');
 
-        // Verifica si la inserción fue exitosa
         if (result.rowsAffected[0] > 0) {
             res.status(201).json({ message: 'User  created successfully' });
         } else {
