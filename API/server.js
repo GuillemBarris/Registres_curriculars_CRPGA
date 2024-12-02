@@ -3,7 +3,7 @@ import UserRoutes from './routes/UsersRoutes.js';
 const app = express()
 
 const PORT = 3000
-const IP = '172.23.1.23'
+const IP = '172.21.46.184'
 app.use(express.json());
 app.use("/api/v1/users", UserRoutes);
 app.listen(PORT, IP, () => {
