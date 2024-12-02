@@ -1,7 +1,5 @@
 <body>
-    <div class="header">
-
-    </div>    
+    <div class="header"></div>
     <div>
         <div class="content">
             <img src="assets/img/user.png" alt="User Icon">
@@ -48,6 +46,49 @@
   </script>
 
             
+      <div class="content">
+        <img src="assets/img/user.png" alt="User Icon">
+        <div class="content-row">
+          <div class="content-input">
+            <p>Correu</p>
+            <input value="Correu">
+          </div>
         </div>
+        <div class="content-row">
+          <div class="content-input">
+            <p>Contrasenya</p>
+            <input type="password">
+          </div>
+        </div>
+        <a href="http://localhost:4200/registres-u" class="login-button"> Entrar </a>
+  
+        <div id="g_id_onload"
+             data-client_id="843785544318-q6aq282t6fp30ooq8576nua88tp4nvmi.apps.googleusercontent.com"
+             data-context="signin"
+             data-ux_mode="popup"
+             data-callback="handleOauthResponse"
+             data-auto_prompt="false">
+        </div>
+  
+        <div class="g_id_signin"
+             data-type="standard"
+             data-shape="rectangular"
+             data-theme="filled_blue"
+             data-text="signin_with"
+             data-size="large"
+             data-logo_alignment="left">
+        </div>
+      </div>
     </div>
-</body>
+    <script>
+      function decodeJWTToken(token) {
+        return JSON.parse(atob(token.split(".")[1]));
+      }
+  
+      function handleOauthResponse(response) {
+        const appElement = document.querySelector('app-login');
+        const ngComponent = angular.element(appElement).scope().$ctrl;
+        ngComponent.handleOauthResponse(response);
+      }
+    </script>
+  </body>

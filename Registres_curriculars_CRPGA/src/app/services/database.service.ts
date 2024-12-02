@@ -7,18 +7,23 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class DatabaseService {
-  private dbUrl = 'http://172.23.1.7:3000'; 
+  private dbUrl = 'http://172.21.46.184:3000'; 
 
   constructor(private http: HttpClient) {}
 
   isUserRegistered(email: string): Observable<boolean> {
-    const params = new HttpParams().set('email', email); 
-    return this.http.get<any[]>(`${this.dbUrl}/users`, { params }).pipe(
-      map(users => users.length > 0), 
-      catchError(err => {
-        console.error('Error checking user registration:', err);
-        return of(false); 
+    const url = `${this.dbUrl}/getAllUsers`;
+    const params = new HttpParams().set('email', email);
+
+
+    return this.http.get(url, { params }).pipe(
+      map((res: any) => {
+        return res.length > 0;
+      }),
+      catchError((err) => {
+        console.error(err);
+        return of(false);
       })
-    );
+    );     
   }
 }

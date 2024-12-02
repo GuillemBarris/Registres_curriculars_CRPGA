@@ -15,16 +15,15 @@ export class LoginComponent {
   handleOauthResponse(response: any): void {
     try {
       const responsePayload = this.decodeJWTToken(response.credential);
-      console.log('Decoded JWT Payload:', responsePayload);
-
-      sessionStorage.setItem('loggedinUser', JSON.stringify(responsePayload));
+      console.log(responsePayload);
 
       this.databaseService.isUserRegistered(responsePayload.email).subscribe({
         next: (isRegistered) => {
           if (isRegistered) {
-            this.router.navigate(['/registres-u']);
+            sessionStorage.setItem('loggedinUser', JSON.stringify(responsePayload));
+            window.location.href = '/login';
           } else {
-            this.router.navigate(['/register']);
+            alert('User is not registered.');
           }
         },
         error: (err) => {
@@ -38,7 +37,7 @@ export class LoginComponent {
     }
   }
 
-   decodeJWTToken(token: string): any {
+  decodeJWTToken(token: string): any {
     try {
       const base64Payload = token.split('.')[1];
       const payload = atob(base64Payload);
