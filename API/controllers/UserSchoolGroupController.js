@@ -46,3 +46,14 @@ export const getGrade = async (req, res) => {
         res.status(500).json({ message: 'Error getting grades', error: err.message });
     }
 }
+
+export const getSubject = async (req, res) => {
+    try{
+        let pool = await sql.connect(config);
+        let result = await pool.request()
+            .query('USE Registres_Curriculars; SELECT DISTINCT Subject FROM User_School_Group');
+        res.status(200).json(result.recordset);
+    }catch (err) {
+        res.status(500).json({ message: 'Error getting subjects', error: err.message });
+    }
+}
