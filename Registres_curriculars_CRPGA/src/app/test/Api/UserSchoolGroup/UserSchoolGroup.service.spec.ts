@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { UserSchoolGroupService } from '../../../services/UserSchoolGroup.service';
+import { UserSchoolGroupService } from '../../../services/UserSchoolGroupService';
 
 describe('UserSchoolGroupService', () => {
     let service: UserSchoolGroupService;
@@ -35,7 +35,7 @@ describe('UserSchoolGroupService', () => {
             expect(groups).toEqual(mockGroups);
         });
 
-        const req = httpMock.expectOne(`${service['dbUrl']}/groups`);
+        const req = httpMock.expectOne(`${service['dbUrl']}/getGroup/`);
         expect(req.request.method).toBe('GET');
         req.flush(mockGroups);
     });
