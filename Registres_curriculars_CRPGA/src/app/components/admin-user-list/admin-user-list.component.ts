@@ -18,5 +18,14 @@ export class AdminUserListComponent {
 
   constructor(private DatabaseService: DatabaseService) {}
 
-  
+  users: any[] = [];
+
+
+  loadUsers(): void {
+    this.DatabaseService.getUsers().subscribe({
+      next: (data) => (this.users = data),
+      error: (err) => console.error('Error fetching users:', err),
+    });
+  }
+
 }

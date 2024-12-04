@@ -20,6 +20,20 @@
                 <th>Tipus</th>
                 <th>Accions</th>
             </tr>
+            <tr *ngFor="let user of users">
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.type }}</td>
+                <td>
+                    <button class="edit-button" >Editar</button>
+                    <button class="delete-button" >Eliminar</button>
+                </td>
+            </tr>
+        </table>
+        <ng-template #noUsers>
+            <p>No hi ha usuaris per mostrar.</p>
+        </ng-template>
+</div>
             
     
 </div>
