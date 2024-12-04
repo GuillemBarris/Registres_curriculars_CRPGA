@@ -28,6 +28,14 @@ export class AdminUserListComponent {
     });
   }
 
+  editUser(user: any): void {
+    console.log('Editing user:', user);
+  }
+
+  deleteUser(user: any): void {
+    console.log('Deleting user:', user);
+  }
+
   
 
 }

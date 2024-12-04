@@ -25,8 +25,8 @@
                 <td>{{ user.email }}</td>
                 <td>{{ user.type }}</td>
                 <td>
-                    <button class="edit-button" >Editar</button>
-                    <button class="delete-button" >Eliminar</button>
+                    <button class="edit-button" (click)="editUser(user)">Editar</button>
+                    <button class="delete-button" (click)="deleteUser(user)">Eliminar</button>
                 </td>
             </tr>
         </table>
