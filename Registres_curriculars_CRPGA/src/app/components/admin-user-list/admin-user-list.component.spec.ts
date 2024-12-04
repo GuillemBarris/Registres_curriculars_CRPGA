@@ -38,5 +38,27 @@ describe('AdminUserListComponent', () => {
     expect(component.users).toEqual(mockUsers);
   });
 
+  it('should display users in the table', () => {
+    databaseService.getUsers.and.returnValue(of(mockUsers));
+    component.ngOnInit();
+    fixture.detectChanges();
+
+    const tableRows = fixture.debugElement.queryAll(By.css('table.users-table tr'));
+    expect(tableRows.length).toBe(3); // Includes header row
+    expect(tableRows[1].nativeElement.textContent).toContain('user1');
+    expect(tableRows[2].nativeElement.textContent).toContain('user2');
+  });
+
+  it('should display "No users to display" when no users are loaded', () => {
+    databaseService.getUsers.and.returnValue(of([]));
+    component.ngOnInit();
+    fixture.detectChanges();
+
+    const paragraphs = fixture.debugElement.queryAll(By.css('p'));
+    const noUsersMessage = paragraphs[1]; 
+    expect(noUsersMessage.nativeElement.textContent).toBe('No hi ha usuaris per mostrar.');
+});
+
+
   
 });
