@@ -32,7 +32,7 @@ export const GetAllUsers = async (req, res) => {
     }
 };
 
-export const getUserbyEmail = async (req, res) => {
+export const GetUserbyEmail = async (req, res) => {
     const { email } = req.params;
     try {
         let pool = await sql.connect(config);
@@ -46,7 +46,7 @@ export const getUserbyEmail = async (req, res) => {
     }
 }
 
-export const registerUser = async (req, res) => {
+export const RegisterUser = async (req, res) => {
     const { name, email, type } = req.body;
     try {
         let pool = await sql.connect(config);
