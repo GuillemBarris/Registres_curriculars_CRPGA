@@ -107,5 +107,14 @@ it('should call editUser when edit button is clicked', () => {
     expect(component.deleteUser).toHaveBeenCalledWith(mockUsers[0]);
   });
 
+  it('should handle errors', () => {
+    databaseService.getUsers.and.returnValue(throwError(() => new Error('Failed to fetch users')));
+    spyOn(console, 'error');
+
+    component.ngOnInit();
+    expect(console.error).toHaveBeenCalledWith('Error fetching users:', jasmine.any(Error));
+    expect(component.users).toEqual([]);
+  });
+
   
 });
