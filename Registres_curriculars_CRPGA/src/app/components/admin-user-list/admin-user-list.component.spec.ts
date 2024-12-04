@@ -59,6 +59,30 @@ describe('AdminUserListComponent', () => {
     expect(noUsersMessage.nativeElement.textContent).toBe('No hi ha usuaris per mostrar.');
 });
 
+it('should call editUser when edit button is clicked', () => {
+  databaseService.getUsers.and.returnValue(of(mockUsers));
+  component.ngOnInit();
+  fixture.detectChanges();
+
+  spyOn(component, 'editUser');
+  const editButton = fixture.debugElement.query(By.css('button.edit-button'));
+  editButton.triggerEventHandler('click', null);
+
+  expect(component.editUser).toHaveBeenCalledWith(mockUsers[0]);
+});
+
+it('should call deleteUser when delete button is clicked', () => {
+  databaseService.getUsers.and.returnValue(of(mockUsers));
+  component.ngOnInit();
+  fixture.detectChanges();
+
+  spyOn(component, 'deleteUser');
+  const deleteButton = fixture.debugElement.query(By.css('button.delete-button'));
+  deleteButton.triggerEventHandler('click', null);
+
+  expect(component.deleteUser).toHaveBeenCalledWith(mockUsers[0]);
+});
+
 
   
 });
