@@ -5,7 +5,7 @@ import UserSchoolGroup from './routes/UserSchoolGroupRoutes.js';
 const app = express()
 
 const PORT = 3000
-const IP = '172.21.46.184'
+const IP = '192.168.222.92'
 app.use(express.json());
 app.use("/api/v1/users", UserRoutes);
 app.use("/api/v1/userSchoolGroup", UserSchoolGroup);
