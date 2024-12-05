@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './admin-user-register.component.html',
   styleUrl: './admin-user-register.component.css'
 })
-export class AdminUserRegisterComponent {
+export class UserSchoolComponent {
 
 }
