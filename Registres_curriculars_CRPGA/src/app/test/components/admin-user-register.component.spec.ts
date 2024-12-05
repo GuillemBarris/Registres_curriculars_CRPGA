@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { UserSchoolComponent } from '../../components/admin-user-register/admin-user-register.component';
+import { AdminUserRegisterComponent} from '../../components/admin-user-register/admin-user-register.component';
 
 describe('UserSchoolComponent', () => {
-  let component: UserSchoolComponent;
-  let fixture: ComponentFixture<UserSchoolComponent>;
+  let component: AdminUserRegisterComponent;
+  let fixture: ComponentFixture<AdminUserRegisterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserSchoolComponent]
+      imports: [AdminUserRegisterComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UserSchoolComponent);
+    fixture = TestBed.createComponent(AdminUserRegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
