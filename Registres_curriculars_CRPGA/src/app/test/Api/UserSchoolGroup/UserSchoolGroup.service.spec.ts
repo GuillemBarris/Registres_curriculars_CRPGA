@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { UserSchoolGroupService } from '../../../services/UserShoolGroupService';
+import { UserSchoolGroupService } from '../../../services/UserSchoolGroupService';
 
 describe('UserSchoolGroupService', () => {
     let service: UserSchoolGroupService;
