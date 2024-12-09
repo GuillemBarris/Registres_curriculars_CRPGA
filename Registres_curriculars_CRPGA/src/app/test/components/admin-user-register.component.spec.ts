@@ -17,6 +17,7 @@ describe('UserSchoolComponent', () => {
     component = fixture.componentInstance;
     component.groups = ['A', 'B', 'C'];
     component.subjects = ['Angles', 'Matematiques', 'Historia'];
+    component.classes = ['1r', '2n', '3r'];
     fixture.detectChanges();
   });
 
@@ -50,8 +51,6 @@ describe('UserSchoolComponent', () => {
 
   it('should add new Group', () => {
     const grupSelect = fixture.debugElement.query(By.css('select[placeholder="Grup"]'));
-    
-
     grupSelect.nativeElement.value = 'A';
     grupSelect.nativeElement.dispatchEvent(new Event('change'));
     fixture.detectChanges(); 
