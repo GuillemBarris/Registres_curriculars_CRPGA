@@ -56,7 +56,7 @@ describe('UserSchoolGroupService', () => {
         expect(req.request.method).toBe('GET');
         req.flush(mockSubjects);
     });
-    it('should fetch Grade list', () => {
+    it('should fetch grades list', () => {
         const mockClasses = {
             "classes": [
                 { "name": "1r" },
