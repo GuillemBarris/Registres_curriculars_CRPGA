@@ -16,6 +16,7 @@ describe('UserSchoolComponent', () => {
     fixture = TestBed.createComponent(AdminUserRegisterComponent);
     component = fixture.componentInstance;
     component.groups = ['A', 'B', 'C'];
+    component.subjects = ['Angles', 'Matematiques', 'Historia'];
     fixture.detectChanges();
   });
 
@@ -59,10 +60,10 @@ describe('UserSchoolComponent', () => {
 
   it('should add new Subject', () => {
     const schoolSelect = fixture.debugElement.query(By.css('select[placeholder="Assignatura"]'));
-    schoolSelect.nativeElement.value = 'Matemàtiques';
+    schoolSelect.nativeElement.value = 'Angles';
     schoolSelect.nativeElement.dispatchEvent(new Event('change'));
     fixture.detectChanges();
-    expect(schoolSelect.nativeElement.value).toBe('Matemàtiques');
+    expect(schoolSelect.nativeElement.value).toBe('Angles');
   });
 
 
