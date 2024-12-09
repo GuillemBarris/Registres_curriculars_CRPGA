@@ -12,4 +12,7 @@ export class UserSchoolGroupService {
     getGroups(): Observable<any> {
         return this.http.get<any>(`${this.dbUrl}/getGroup/`);
     }
+    getSubjects(): Observable<any> {
+        return this.http.get<any>(`${this.dbUrl}/getSubject/`);
+    }
 }
