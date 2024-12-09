@@ -19,7 +19,7 @@
            <div>
                 <label>Classe:</label>
                 <select placeholder="Classe">
-                    <option value="1r">1r</option>
+                  <option *ngFor="let grade of grades" [value]="grade">{{ grade }}</option>
                 </select>
                 <label>Grup:</label>
                 <select placeholder="Grup">
