@@ -65,8 +65,8 @@ describe('UserSchoolGroupService', () => {
             ]
         };
 
-        service.getClasses().subscribe(classes => {
-            expect(classes).toEqual(mockClasses);
+        service.getGrade().subscribe(Grades => {
+            expect(Grades).toEqual(mockClasses);
         });
 
         const req = httpMock.expectOne(`${service['dbUrl']}/getGrade/`);
