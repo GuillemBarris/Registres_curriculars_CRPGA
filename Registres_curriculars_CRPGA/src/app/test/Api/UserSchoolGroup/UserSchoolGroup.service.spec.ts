@@ -56,7 +56,7 @@ describe('UserSchoolGroupService', () => {
         expect(req.request.method).toBe('GET');
         req.flush(mockSubjects);
     });
-    it('should fetch class list', () => {
+    it('should fetch Grade list', () => {
         const mockClasses = {
             "classes": [
                 { "name": "1r" },
@@ -69,7 +69,7 @@ describe('UserSchoolGroupService', () => {
             expect(classes).toEqual(mockClasses);
         });
 
-        const req = httpMock.expectOne(`${service['dbUrl']}/getClass/`);
+        const req = httpMock.expectOne(`${service['dbUrl']}/getGrade/`);
         expect(req.request.method).toBe('GET');
         req.flush(mockClasses);
     });
