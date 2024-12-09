@@ -28,7 +28,7 @@
 
                 <label>Assignatura:</label>
                 <select placeholder="Assignatura">
-                    <option value="Matemàtiques">Matemàtiques</option>
+                    <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
                   </select>
            </div>
            <button type="submit">Crea</button>

@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AdminUserRegisterComponent implements OnInit {
   groups: any[] = [];
+  subjects: any[] = [];
 
   constructor(private userSchoolGroupService: UserSchoolGroupService) {}
 
@@ -22,6 +23,14 @@ export class AdminUserRegisterComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching groups', error);
+      }
+    );
+    this.userSchoolGroupService.getSubjects().subscribe(
+      (data) => {
+       this.subjects = data.map((item: any) => item.Subject);
+      },
+      (error) => {
+        console.error('Error fetching subjects', error);
       }
     );
   }
