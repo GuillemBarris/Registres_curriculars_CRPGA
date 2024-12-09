@@ -42,9 +42,9 @@ describe('UserSchoolGroupService', () => {
     it('should fetch subjects list', () => {
         const mockSubjects = {
             "subjects": [
-                { "name": "Math" },
-                { "name": "Science" },
-                { "name": "English" }
+                { "name": "Angles" },
+                { "name": "Matematiques" },
+                { "name": "Historia" }
             ]
         };
 
