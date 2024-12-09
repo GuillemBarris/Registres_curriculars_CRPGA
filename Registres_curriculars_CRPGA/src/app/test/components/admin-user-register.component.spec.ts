@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AdminUserRegisterComponent} from '../../components/admin-user-register/admin-user-register.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('UserSchoolComponent', () => {
   let component: AdminUserRegisterComponent;
@@ -8,12 +9,13 @@ describe('UserSchoolComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AdminUserRegisterComponent]
+      imports: [AdminUserRegisterComponent, HttpClientTestingModule]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(AdminUserRegisterComponent);
     component = fixture.componentInstance;
+    component.groups = ['A', 'B', 'C'];
     fixture.detectChanges();
   });
 
@@ -45,11 +47,13 @@ describe('UserSchoolComponent', () => {
     expect(classSelect.nativeElement.value).toBe('1r');
   });
 
-  it('should add new Group',()=> {
-   const grupSelect = fixture.debugElement.query(By.css('select[placeholder="Grup"]'));
+  it('should add new Group', () => {
+    const grupSelect = fixture.debugElement.query(By.css('select[placeholder="Grup"]'));
+    
+
     grupSelect.nativeElement.value = 'A';
     grupSelect.nativeElement.dispatchEvent(new Event('change'));
-    fixture.detectChanges();
+    fixture.detectChanges(); 
     expect(grupSelect.nativeElement.value).toBe('A');
   });
 
