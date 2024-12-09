@@ -65,7 +65,7 @@ describe('UserSchoolGroupService', () => {
             ]
         };
 
-        service.getGrade().subscribe(Grades => {
+        service.getGrades().subscribe(Grades => {
             expect(Grades).toEqual(mockClasses);
         });
 
