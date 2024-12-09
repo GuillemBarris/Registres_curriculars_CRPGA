@@ -15,7 +15,7 @@ export class UserSchoolGroupService {
     getSubjects(): Observable<any> {
         return this.http.get<any>(`${this.dbUrl}/getSubject/`);
     }
-    getClasses(): Observable<any> {
-        return this.http.get<any>(`${this.dbUrl}/getClass/`);
+    getGrades(): Observable<any> {
+        return this.http.get<any>(`${this.dbUrl}/getGrade/`);
     }
 }
