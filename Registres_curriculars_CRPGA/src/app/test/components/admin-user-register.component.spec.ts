@@ -17,7 +17,7 @@ describe('UserSchoolComponent', () => {
     component = fixture.componentInstance;
     component.groups = ['A', 'B', 'C'];
     component.subjects = ['Angles', 'Matematiques', 'Historia'];
-    component.classes = ['1r', '2n', '3r'];
+    component.grades = ['1r', '2n', '3r'];
     fixture.detectChanges();
   });
 
@@ -41,12 +41,12 @@ describe('UserSchoolComponent', () => {
     expect(emailInput.nativeElement.value).toBe('eric@gmail.com');
   });
 
-  it('should add new Class', () => {
-    const classSelect = fixture.debugElement.query(By.css('select[placeholder="Classe"]'));
-    classSelect.nativeElement.value = '1r';
-    classSelect.nativeElement.dispatchEvent(new Event('change'));
+  it('should add new Grade', () => {
+    const gradeSelect = fixture.debugElement.query(By.css('select[placeholder="Grade"]'));
+    gradeSelect.nativeElement.value = '1r';
+    gradeSelect.nativeElement.dispatchEvent(new Event('change'));
     fixture.detectChanges();
-    expect(classSelect.nativeElement.value).toBe('1r');
+    expect(gradeSelect.nativeElement.value).toBe('1r');
   });
 
   it('should add new Group', () => {
