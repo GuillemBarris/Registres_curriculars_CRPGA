@@ -56,5 +56,22 @@ describe('UserSchoolGroupService', () => {
         expect(req.request.method).toBe('GET');
         req.flush(mockSubjects);
     });
+    it('should fetch class list', () => {
+        const mockClasses = {
+            "classes": [
+                { "name": "1r" },
+                { "name": "2n" },
+                { "name": "3r" }
+            ]
+        };
+
+        service.getClasses().subscribe(classes => {
+            expect(classes).toEqual(mockClasses);
+        });
+
+        const req = httpMock.expectOne(`${service['dbUrl']}/getClass/`);
+        expect(req.request.method).toBe('GET');
+        req.flush(mockClasses);
+    });
 
 });
