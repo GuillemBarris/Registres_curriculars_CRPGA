@@ -23,8 +23,9 @@
                 </select>
                 <label>Grup:</label>
                 <select placeholder="Grup">
-                    <option value="A">A</option>
+                  <option *ngFor="let group of groups" [value]="group">{{ group }}</option>
                 </select>
+
                 <label>Assignatura:</label>
                 <select placeholder="Assignatura">
                     <option value="Matemàtiques">Matemàtiques</option>

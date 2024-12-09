@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
     providedIn:'root'
 })
 export class UserSchoolGroupService {
-    private dbUrl = 'http://192.168.222.92:3000/api/v1/userSchoolGroup';
+    private dbUrl = 'http://172.21.46.184:3000/api/v1/userSchoolGroup';
 
     constructor(private http: HttpClient) {}
 
