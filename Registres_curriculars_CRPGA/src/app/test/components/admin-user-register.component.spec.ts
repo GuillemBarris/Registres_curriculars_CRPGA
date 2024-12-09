@@ -42,7 +42,7 @@ describe('UserSchoolComponent', () => {
   });
 
   it('should add new Grade', () => {
-    const gradeSelect = fixture.debugElement.query(By.css('select[placeholder="Grade"]'));
+    const gradeSelect = fixture.debugElement.query(By.css('select[placeholder="Classe"]'));
     gradeSelect.nativeElement.value = '1r';
     gradeSelect.nativeElement.dispatchEvent(new Event('change'));
     fixture.detectChanges();
