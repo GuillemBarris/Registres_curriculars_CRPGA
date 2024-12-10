@@ -66,7 +66,7 @@ it('should send new user to the database', () => {
     expect(response).toEqual(newUser );
   });
 
-  const req = httpMock.expectOne(`${service['dbUrl']}/createUser /`);
+  const req = httpMock.expectOne(`${service['dbUrl']}/createUser/`);
   expect(req.request.method).toBe('POST');
 
   req.flush(newUser );
