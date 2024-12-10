@@ -21,6 +21,7 @@ export class AdminUserRegisterComponent implements OnInit {
   grade: string = '';
   group: string = '';
   subject: string = '';
+ private nameCounter: number = 0;
   constructor(
     private userSchoolGroupService: UserSchoolGroupService,
     private userService: UserService
@@ -54,6 +55,7 @@ export class AdminUserRegisterComponent implements OnInit {
   }
   createGradeGroupSubject() {
     this.gradeGroupSubject.push({});
+    this.nameCounter++;
   }
   createUser() {
     const newUser = {
@@ -70,21 +72,23 @@ export class AdminUserRegisterComponent implements OnInit {
       }
     );
   }
-  createUserSchoolGroup(){
-    const userSchoolGroup = {
-      teacher: this.email,
-      school: 'Escola Pia Olot',
-      grade: this.grade,
-      group: this.group,
-      subject: this.subject,
-    }
-    this.userSchoolGroupService.postUserSchoolGroup(userSchoolGroup).subscribe(
-      (data) => {
-        console.log('UserSchoolGroup added successfully', data);
-      },
-      (error) => {
-        console.error('Error adding userSchoolGroup', error);
-      }
-    );
-  }
+  createUserSchoolGroup() {
+    this.gradeGroupSubject.forEach(ggs => {
+        const userSchoolGroup = {
+            teacher: this.email,
+            school: 'Escola Pia Olot',
+            grade: ggs.grade,
+            group: ggs.group,
+            subject: ggs.subject,
+        };
+        this.userSchoolGroupService.postUserSchoolGroup(userSchoolGroup).subscribe(
+            (data) => {
+                console.log('UserSchoolGroup added successfully', data);
+            },
+            (error) => {
+                console.error('Error adding userSchoolGroup', error);
+            }
+        );
+    });
+}
 }

@@ -1,37 +1,35 @@
 <div>
-    <div class="header">
-
-        <div class="header-subsection">
-            <a style="font-size: 40px; text-decoration: none;" href="http://localhost:4200/registres-u">&#8678;</a>    
-            <h1>Escola Pia Olot</h1>
-        </div>
-        <div class="header-subsection">
-          <p>Benvolgut, Eric</p>
-          <img id="userIconId" src="assets/img/user.png" alt="User Icon">
-        </div>
+  <div class="header">
+      <div class="header-subsection">
+          <a style="font-size: 40px; text-decoration: none;" href="http://localhost:4200/registres-u">&#8678;</a>    
+          <h1>Escola Pia Olot</h1>
       </div>
-      <h1>Crea un nou Usuari</h1>
-        <form>
-            <label>Nom:</label>
-            <input placeholder="Nom" [(ngModel)]="name" name="name">
-           <label>Correu</label>
-           <input placeholder="Correu" [(ngModel)]="email" name="email">
-           <div *ngFor="let ggs of  gradeGroupSubject ">
-                <label>Classe:</label>
-                <select placeholder="Classe" [(ngModel)]="grade" name="grade">
-                  <option *ngFor="let grad of grades" [value]="grad">{{ grad }}</option>
-                </select>
-                <label>Grup:</label>
-                <select placeholder="Grup" [(ngModel)]="group" name="group">
-                  <option *ngFor="let grup of groups" [value]="grup">{{ grup }}</option>
-                </select>
-
-                <label>Assignatura:</label>
-                <select placeholder="Assignatura" [(ngModel)]="subject" name="Angles">
-                    <option *ngFor="let subj of subjects" [value]="subj" >{{ subj }}</option>
-                  </select>
-           </div>
-        </form>
-        <button (click)="createGradeGroupSubject()">Afagir-lo a nova Classe</button>
-        <button (click)="createUser()" (click)="createUserSchoolGroup()">Crear</button>
+      <div class="header-subsection">
+        <p>Benvolgut, Eric</p>
+        <img id="userIconId" src="assets/img/user.png" alt="User Icon">
+      </div>
+  </div>
+  <h1>Crea un nou Usuari</h1>
+  <form>
+      <label>Nom:</label>
+      <input placeholder="Nom" [(ngModel)]="name" name="name">
+      <label>Correu</label>
+      <input placeholder="Correu" [(ngModel)]="email" name="email">
+      <div *ngFor="let ggs of gradeGroupSubject; let i = index">
+          <label>Classe:</label>
+          <select placeholder="Classe" [(ngModel)]="ggs.grade" name="grade{{i}}">
+              <option *ngFor="let grad of grades" [value]="grad">{{ grad }}</option>
+          </select>
+          <label>Grup:</label>
+          <select placeholder="Grup" [(ngModel)]="ggs.group" name="group{{i}}">
+              <option *ngFor="let grup of groups" [value]="grup">{{ grup }}</option>
+          </select>
+          <label>Assignatura:</label>
+          <select placeholder="Assignatura" [(ngModel)]="ggs.subject" name="subject{{i}}">
+              <option *ngFor="let subj of subjects" [value]="subj">{{ subj }}</option>
+          </select>
+      </div>
+  </form>
+  <button (click)="createGradeGroupSubject()">Afagir-lo a nova Classe</button>
+  <button (click)="createUser(); createUserSchoolGroup()">Crear</button>
 </div>
