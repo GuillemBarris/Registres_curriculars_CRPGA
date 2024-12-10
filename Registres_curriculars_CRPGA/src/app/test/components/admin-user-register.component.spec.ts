@@ -65,5 +65,16 @@ describe('UserSchoolComponent', () => {
     expect(schoolSelect.nativeElement.value).toBe('Angles');
   });
 
+  it('should create a new Grade, Group and Subject', () => {
+  
+    expect(component.gradeGroupSubject.length).toBe(0);
+
+    component.createGradeGroupSubject();
+
+    expect(component.gradeGroupSubject.length).toBe(1);
+    expect(component.gradeGroupSubject[0].toEqual({}))
+  
+  });
+
 
 });
