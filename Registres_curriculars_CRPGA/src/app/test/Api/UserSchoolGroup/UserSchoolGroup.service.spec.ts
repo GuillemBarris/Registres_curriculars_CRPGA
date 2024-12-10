@@ -73,5 +73,22 @@ describe('UserSchoolGroupService', () => {
         expect(req.request.method).toBe('GET');
         req.flush(mockClasses);
     });
-
+    it('should send new userSchoolGroup to the database', () => {
+        const newUser  = {
+          "teacher": "test",
+           "school": "test",
+            "grade": "test",
+            "group": "test",
+            "subject": "test",
+        };
+      
+        service.postUserSchoolGroup (newUser ).subscribe((response) => {
+          expect(response).toEqual(newUser );
+        });
+      
+        const req = httpMock.expectOne(`${service['dbUrl']}/createUser/`);
+        expect(req.request.method).toBe('POST');
+      
+        req.flush(newUser );
+      });
 });
