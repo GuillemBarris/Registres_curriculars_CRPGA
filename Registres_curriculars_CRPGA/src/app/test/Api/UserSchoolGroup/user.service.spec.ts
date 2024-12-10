@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../../services/user.service';
 
 describe('DatabaseService', () => {
   let service: UserService;
