@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { DatabaseService } from '../../services/database.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,14 +10,14 @@ import { DatabaseService } from '../../services/database.service';
   styleUrls: ['./login.component.css'], 
 })
 export class LoginComponent {
-  constructor(private databaseService: DatabaseService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   handleOauthResponse(response: any): void {
     try {
       const responsePayload = this.decodeJWTToken(response.credential);
       console.log(responsePayload);
 
-      this.databaseService.isUserRegistered(responsePayload.email).subscribe({
+      this.userService.isUserRegistered(responsePayload.email).subscribe({
         next: (isRegistered) => {
           if (isRegistered) {
             sessionStorage.setItem('loggedinUser', JSON.stringify(responsePayload));

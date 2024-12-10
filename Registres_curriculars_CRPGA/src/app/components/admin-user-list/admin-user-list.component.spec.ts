@@ -2,12 +2,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of, throwError } from 'rxjs';
 import { AdminUserListComponent } from './admin-user-list.component';
-import { DatabaseService } from '../../services/database.service';
+import { UserService } from '../../services/user.service';
 
 describe('AdminUserListComponent', () => {
   let component: AdminUserListComponent;
   let fixture: ComponentFixture<AdminUserListComponent>;
-  let databaseService: jasmine.SpyObj<DatabaseService>;
+  let databaseService: jasmine.SpyObj<UserService>;
 
   const mockUsers = [
     { username: 'user1', email: 'user1@example.com', type: 'admin' },
@@ -19,10 +19,10 @@ describe('AdminUserListComponent', () => {
 
     await TestBed.configureTestingModule({
       imports: [AdminUserListComponent],
-      providers: [{ provide: DatabaseService, useValue: databaseServiceSpy }],
+      providers: [{ provide: UserService, useValue: databaseServiceSpy }],
     }).compileComponents();
 
-    databaseService = TestBed.inject(DatabaseService) as jasmine.SpyObj<DatabaseService>;
+    databaseService = TestBed.inject(UserService) as jasmine.SpyObj<UserService>;
     fixture = TestBed.createComponent(AdminUserListComponent);
     component = fixture.componentInstance;
   });

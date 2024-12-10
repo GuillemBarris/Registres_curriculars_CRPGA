@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginComponent } from '../../components/login/login.component';
 import { provideHttpClient } from '@angular/common/http';  // Use provideHttpClient instead of HttpClientModule
-import { DatabaseService } from '../../services/database.service';
+import { UserService } from '../../services/user.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -12,7 +12,7 @@ describe('LoginComponent', () => {
       imports: [LoginComponent],      
       providers: [
         provideHttpClient(),              
-        DatabaseService                    
+        UserService                    
       ],
     }).compileComponents();
 
