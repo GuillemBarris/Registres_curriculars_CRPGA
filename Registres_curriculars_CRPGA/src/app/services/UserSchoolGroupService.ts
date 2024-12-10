@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 @Injectable({
     providedIn:'root'
 })
@@ -18,4 +18,12 @@ export class UserSchoolGroupService {
     getGrades(): Observable<any> {
         return this.http.get<any>(`${this.dbUrl}/getGrade/`);
     }
+    postUserSchoolGroup(user: any): Observable<any> {
+        return this.http.post<any>(`${this.dbUrl}/createUserSchoolGroup/`, user).pipe(
+          catchError((err) => {
+            console.error('Error adding user:', err);
+            return of(null);
+          })
+        );
+      }
 }
