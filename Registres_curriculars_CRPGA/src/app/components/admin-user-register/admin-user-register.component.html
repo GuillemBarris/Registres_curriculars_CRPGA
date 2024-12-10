@@ -13,9 +13,9 @@
       <h1>Crea un nou Usuari</h1>
         <form>
             <label>Nom:</label>
-            <input placeholder="Nom">
+            <input placeholder="Nom" [(ngModel)]="name" name="name">
            <label>Correu</label>
-           <input placeholder="Correu">
+           <input placeholder="Correu" [(ngModel)]="email" name="email">
            <div *ngFor="let ggs of  gradeGroupSubject ">
                 <label>Classe:</label>
                 <select placeholder="Classe">
@@ -33,5 +33,5 @@
            </div>
         </form>
         <button (click)="createGradeGroupSubject()">Afagir-lo a nova Classe</button>
-        <button type="submit">Crear</button>
+        <button (click)="createUser()">Crear</button>
 </div>

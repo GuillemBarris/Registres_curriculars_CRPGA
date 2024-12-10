@@ -2,11 +2,13 @@
 import { Component, OnInit } from '@angular/core';
 import { UserSchoolGroupService } from '../../services/UserSchoolGroupService';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../services/user.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-user-register',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './admin-user-register.component.html',
   styleUrl: './admin-user-register.component.css'
 })
@@ -15,7 +17,9 @@ export class AdminUserRegisterComponent implements OnInit {
   subjects: any[] = [];
   grades: any[] = [];
   gradeGroupSubject: any[] = [{}];
-  constructor(private userSchoolGroupService: UserSchoolGroupService) {}
+  name: string = '';
+  email: string = '';
+  constructor(private userSchoolGroupService: UserSchoolGroupService, private userService: UserService) {}
 
   ngOnInit(): void {
     this.userSchoolGroupService.getGroups().subscribe(
@@ -46,5 +50,20 @@ export class AdminUserRegisterComponent implements OnInit {
   }
   createGradeGroupSubject() {
     this.gradeGroupSubject.push({});  }
-    
+    createUser() {
+      const  newUser = {
+         "name": this.name,
+         "email": this.email,
+         "type": "teacher",
+ 
+       }
+       this.userService.postUser(newUser).subscribe(
+         (data) => {
+           console.log('User added successfully', data);
+         },
+         (error) => {
+           console.error('Error adding user', error);
+         }
+       );
+     }
 }
