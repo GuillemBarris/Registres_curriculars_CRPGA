@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { DatabaseService } from '../../services/database.service';
 
 describe('DatabaseService', () => {
@@ -8,8 +8,8 @@ describe('DatabaseService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [DatabaseService],
+      imports: [],
+      providers: [DatabaseService, provideHttpClientTesting()],
     });
     service = TestBed.inject(DatabaseService);
     httpMock = TestBed.inject(HttpTestingController);
