@@ -6,7 +6,7 @@ import { catchError, map, retry } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class DatabaseService {
+export class UserService {
   private dbUrl = 'http://192.168.222.92:3000/api/v1/users'; 
 
   constructor(private http: HttpClient) {}

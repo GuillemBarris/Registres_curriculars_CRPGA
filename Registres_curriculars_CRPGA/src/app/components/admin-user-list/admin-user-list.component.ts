@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DatabaseService } from '../../services/database.service';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -16,13 +16,13 @@ export class AdminUserListComponent {
     this.loadUsers();
   }
 
-  constructor(private DatabaseService: DatabaseService) {}
+  constructor(private UserService: UserService) {}
 
   users: any[] = [];
 
 
   loadUsers(): void {
-    this.DatabaseService.getUsers().subscribe({
+    this.UserService.getUsers().subscribe({
       next: (data) => (this.users = data),
       error: (err) => console.error('Error fetching users:', err),
     });

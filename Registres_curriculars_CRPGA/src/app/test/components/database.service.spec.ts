@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { DatabaseService } from '../../services/database.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { UserService } from '../../services/user.service';
 
 describe('DatabaseService', () => {
-  let service: DatabaseService;
+  let service: UserService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [],
-      providers: [DatabaseService, provideHttpClientTesting()],
+      imports: [HttpClientTestingModule],
+      providers: [UserService],
     });
-    service = TestBed.inject(DatabaseService);
+    service = TestBed.inject(UserService);
     httpMock = TestBed.inject(HttpTestingController);
   });
 

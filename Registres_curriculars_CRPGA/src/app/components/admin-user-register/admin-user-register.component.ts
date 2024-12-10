@@ -14,6 +14,7 @@ export class AdminUserRegisterComponent implements OnInit {
   groups: any[] = [];
   subjects: any[] = [];
   grades: any[] = [];
+  gradeGroupSubject: any[] = [{}];
   constructor(private userSchoolGroupService: UserSchoolGroupService) {}
 
   ngOnInit(): void {
@@ -43,4 +44,7 @@ export class AdminUserRegisterComponent implements OnInit {
     );
 
   }
+  createGradeGroupSubject() {
+    this.gradeGroupSubject.push({});  }
+    
 }
