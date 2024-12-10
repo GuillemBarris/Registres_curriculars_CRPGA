@@ -16,7 +16,7 @@
             <input placeholder="Nom">
            <label>Correu</label>
            <input placeholder="Correu">
-           <div>
+           <div *ngFor="let ggs of  gradeGroupSubject ">
                 <label>Classe:</label>
                 <select placeholder="Classe">
                   <option *ngFor="let grade of grades" [value]="grade">{{ grade }}</option>
@@ -31,7 +31,7 @@
                     <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
                   </select>
            </div>
-           <button type="submit">Crea</button>
         </form>
+        <button (click)="createGradeGroupSubject()">Afagir-lo a nova Classe</button>
         <button type="submit">Crear</button>
 </div>
