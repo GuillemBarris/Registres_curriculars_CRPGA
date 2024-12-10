@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { UserSchoolGroupService } from '../../services/UserSchoolGroupService';
 import { CommonModule } from '@angular/common';
@@ -10,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './admin-user-register.component.html',
-  styleUrl: './admin-user-register.component.css'
+  styleUrl: './admin-user-register.component.css',
 })
 export class AdminUserRegisterComponent implements OnInit {
   groups: any[] = [];
@@ -19,7 +18,10 @@ export class AdminUserRegisterComponent implements OnInit {
   gradeGroupSubject: any[] = [{}];
   name: string = '';
   email: string = '';
-  constructor(private userSchoolGroupService: UserSchoolGroupService, private userService: UserService) {}
+  constructor(
+    private userSchoolGroupService: UserSchoolGroupService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.userSchoolGroupService.getGroups().subscribe(
@@ -32,7 +34,7 @@ export class AdminUserRegisterComponent implements OnInit {
     );
     this.userSchoolGroupService.getSubjects().subscribe(
       (data) => {
-       this.subjects = data.map((item: any) => item.Subject);
+        this.subjects = data.map((item: any) => item.Subject);
       },
       (error) => {
         console.error('Error fetching subjects', error);
@@ -46,24 +48,23 @@ export class AdminUserRegisterComponent implements OnInit {
         console.error('Error fetching grades', error);
       }
     );
-
   }
   createGradeGroupSubject() {
-    this.gradeGroupSubject.push({});  }
-    createUser() {
-      const  newUser = {
-         "name": this.name,
-         "email": this.email,
-         "type": "teacher",
- 
-       }
-       this.userService.postUser(newUser).subscribe(
-         (data) => {
-           console.log('User added successfully', data);
-         },
-         (error) => {
-           console.error('Error adding user', error);
-         }
-       );
-     }
+    this.gradeGroupSubject.push({});
+  }
+  createUser() {
+    const newUser = {
+      name: this.name,
+      email: this.email,
+      type: 'teacher',
+    };
+    this.userService.postUser(newUser).subscribe(
+      (data) => {
+        console.log('User added successfully', data);
+      },
+      (error) => {
+        console.error('Error adding user', error);
+      }
+    );
+  }
 }
