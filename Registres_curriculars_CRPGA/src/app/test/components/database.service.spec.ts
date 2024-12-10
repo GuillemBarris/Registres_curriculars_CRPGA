@@ -8,7 +8,7 @@ describe('DatabaseService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [],
+      imports: [HttpClientTestingModule],
       providers: [UserService, provideHttpClientTesting()],
     });
     service = TestBed.inject(UserService);
