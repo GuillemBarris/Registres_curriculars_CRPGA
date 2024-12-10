@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { AdminUserRegisterComponent} from '../../components/admin-user-register/admin-user-register.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('UserSchoolComponent', () => {
+describe('AdminUserRegisterComponent', () => {
   let component: AdminUserRegisterComponent;
   let fixture: ComponentFixture<AdminUserRegisterComponent>;
 
@@ -81,6 +81,11 @@ describe('UserSchoolComponent', () => {
     fixture.detectChanges();
     expect(component.gradeGroupSubject.length).toBe(2);
   
+  });
+  it('should click button to create a new User', () => {
+    spyOn(component, 'postUser');
+    const button = fixture.nativeElement.querySelectorAll('button')[1];
+    expect(component.postUser).toHaveBeenCalled();
   });
   
 
