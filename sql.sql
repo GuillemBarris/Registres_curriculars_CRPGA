@@ -8,12 +8,18 @@ CREATE TABLE Users (
     PRIMARY KEY (email)
 );
 
-CREATE TABLE User_School_Group(
+CREATE TABLE Schools (
+    name VARCHAR(50) NOT NULL,
+    PRIMARY KEY (name)
+);
+
+CREATE TABLE User_School_Group (
     teacher VARCHAR(50) NOT NULL,
     school VARCHAR(50) NOT NULL,
     grade VARCHAR(50) NOT NULL,
     "group" VARCHAR(50) NOT NULL,
     "subject" VARCHAR(50) NOT NULL,
     PRIMARY KEY (teacher, school, grade, "group", "subject"),
-    FOREIGN KEY (teacher) REFERENCES Users(email),
-)
+    FOREIGN KEY (teacher) REFERENCES Users(email) ON DELETE CASCADE,
+    FOREIGN KEY (school) REFERENCES Schools(name) ON DELETE CASCADE
+);
