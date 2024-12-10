@@ -56,20 +56,20 @@ it('should handle error and return false', () => {
 });
 
 it('should send new user to the database', () => {
-  const newUser = {
+  const newUser  = {
     "name": "test",
     "email": "a@gm.com",
     "type": "teacher",
-  }
-  service.postUser(newUser).subscribe((response) => {
-    expect(response).toEqual(newUser);
+  };
+
+  service.postUser (newUser ).subscribe((response) => {
+    expect(response).toEqual(newUser );
   });
 
-  const req = httpMock.expectOne(`${service['dbUrl']}/createUser/`);
+  const req = httpMock.expectOne(`${service['dbUrl']}/createUser /`);
   expect(req.request.method).toBe('POST');
-  req.flush(newUser);
-  req.error(new ErrorEvent('Network error'));
 
+  req.flush(newUser );
 });
 
 });
