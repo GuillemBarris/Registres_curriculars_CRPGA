@@ -7,7 +7,7 @@ import { catchError, map, retry } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class UserService {
-  private dbUrl = 'http://192.168.222.92:3000/api/v1/users'; 
+  private dbUrl = 'http://172.21.46.184:3000/api/v1/users'; 
 
   constructor(private http: HttpClient) {}
 
@@ -31,6 +31,14 @@ export class UserService {
       catchError((err) => {
         console.error('Error checking user registration:', err);
         return of(false); 
+      })
+    );
+  }
+  postUser(user: any): Observable<any> {
+    return this.http.post<any>(`${this.dbUrl}/createUser/`, user).pipe(
+      catchError((err) => {
+        console.error('Error adding user:', err);
+        return of(null);
       })
     );
   }
