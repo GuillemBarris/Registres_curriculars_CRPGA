@@ -1,7 +1,7 @@
 <div>
   <div class="header">
       <div class="header-subsection">
-          <a style="font-size: 40px; text-decoration: none;" href="http://localhost:4200/registres-u">&#8678;</a>    
+          <a style="font-size: 40px; text-decoration: none;" href="http://localhost:4200/admin-user-list">&#8678;</a>    
           <h1>Escola Pia Olot</h1>
       </div>
       <div class="header-subsection">
@@ -9,13 +9,14 @@
         <img id="userIconId" src="assets/img/user.png" alt="User Icon">
       </div>
   </div>
+  <div class="content">
   <h1>Crea un nou Usuari</h1>
   <form>
-      <label>Nom:</label>
-      <input placeholder="Nom" [(ngModel)]="name" name="name">
-      <label>Correu</label>
-      <input placeholder="Correu" [(ngModel)]="email" name="email">
-      <div *ngFor="let ggs of gradeGroupSubject; let i = index">
+      <label>Nom:
+      <input placeholder="Nom" [(ngModel)]="name" name="name"></label>
+      <label>Correu:
+      <input placeholder="Correu" [(ngModel)]="email" name="email"></label>
+      <div class="dropdowns" *ngFor="let ggs of gradeGroupSubject; let i = index">
           <label>Classe:</label>
           <select placeholder="Classe" [(ngModel)]="ggs.grade" name="grade{{i}}">
               <option *ngFor="let grad of grades" [value]="grad">{{ grad }}</option>
@@ -30,6 +31,8 @@
           </select>
       </div>
   </form>
-  <button (click)="createGradeGroupSubject()">Afagir-lo a nova Classe</button>
-  <button (click)="createUser(); createUserSchoolGroup()">Crear</button>
+  <button (click)="createGradeGroupSubject()">Afegir altra classe</button>
+  <button (click)="createUser(); createUserSchoolGroup()">Crear Usuari</button>
+</div>
+
 </div>
