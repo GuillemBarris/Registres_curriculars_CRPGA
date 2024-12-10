@@ -18,20 +18,20 @@
            <input placeholder="Correu" [(ngModel)]="email" name="email">
            <div *ngFor="let ggs of  gradeGroupSubject ">
                 <label>Classe:</label>
-                <select placeholder="Classe">
-                  <option *ngFor="let grade of grades" [value]="grade">{{ grade }}</option>
+                <select placeholder="Classe" [(ngModel)]="grade" name="grade">
+                  <option *ngFor="let grad of grades" [value]="grad">{{ grad }}</option>
                 </select>
                 <label>Grup:</label>
-                <select placeholder="Grup">
-                  <option *ngFor="let group of groups" [value]="group">{{ group }}</option>
+                <select placeholder="Grup" [(ngModel)]="group" name="group">
+                  <option *ngFor="let grup of groups" [value]="grup">{{ grup }}</option>
                 </select>
 
                 <label>Assignatura:</label>
-                <select placeholder="Assignatura">
-                    <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
+                <select placeholder="Assignatura" [(ngModel)]="subject" name="Angles">
+                    <option *ngFor="let subj of subjects" [value]="subj" >{{ subj }}</option>
                   </select>
            </div>
         </form>
         <button (click)="createGradeGroupSubject()">Afagir-lo a nova Classe</button>
-        <button (click)="createUser()">Crear</button>
+        <button (click)="createUser()" (click)="createUserSchoolGroup()">Crear</button>
 </div>

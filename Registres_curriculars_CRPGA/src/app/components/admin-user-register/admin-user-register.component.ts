@@ -18,6 +18,9 @@ export class AdminUserRegisterComponent implements OnInit {
   gradeGroupSubject: any[] = [{}];
   name: string = '';
   email: string = '';
+  grade: string = '';
+  group: string = '';
+  subject: string = '';
   constructor(
     private userSchoolGroupService: UserSchoolGroupService,
     private userService: UserService
@@ -64,6 +67,23 @@ export class AdminUserRegisterComponent implements OnInit {
       },
       (error) => {
         console.error('Error adding user', error);
+      }
+    );
+  }
+  createUserSchoolGroup(){
+    const userSchoolGroup = {
+      teacher: this.email,
+      school: 'Escola Pia Olot',
+      grade: this.grade,
+      group: this.group,
+      subject: this.subject,
+    }
+    this.userSchoolGroupService.postUserSchoolGroup(userSchoolGroup).subscribe(
+      (data) => {
+        console.log('UserSchoolGroup added successfully', data);
+      },
+      (error) => {
+        console.error('Error adding userSchoolGroup', error);
       }
     );
   }

@@ -88,7 +88,7 @@ describe('AdminUserRegisterComponent', () => {
     button.click();
     expect(component.createUser).toHaveBeenCalled();
   });
-  it('should click button to create a new UserSchool Group', () => {
+  it('should click button to create a new UserSchoolGroup', () => {
     spyOn(component, 'createUserSchoolGroup');
     const button = fixture.nativeElement.querySelectorAll('button')[1];
     button.click();
