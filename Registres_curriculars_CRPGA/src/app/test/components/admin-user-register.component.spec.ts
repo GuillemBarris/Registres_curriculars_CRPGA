@@ -67,11 +67,11 @@ describe('UserSchoolComponent', () => {
 
   it('should create a new Grade, Group and Subject', () => {
   
-    expect(component.gradeGroupSubject.length).toBe(0);
+    expect(component.gradeGroupSubject.length).toBe(1);
 
     component.createGradeGroupSubject();
 
-    expect(component.gradeGroupSubject.length).toBe(1);
+    expect(component.gradeGroupSubject.length).toBe(2);
     expect(component.gradeGroupSubject[0]).toEqual({});
   
   });
@@ -79,7 +79,7 @@ describe('UserSchoolComponent', () => {
     const button = fixture.debugElement.query(By.css('button'));
     button.nativeElement.click();
     fixture.detectChanges();
-    expect(component.gradeGroupSubject.length).toBe(1);
+    expect(component.gradeGroupSubject.length).toBe(2);
   
   });
   
