@@ -83,9 +83,10 @@ describe('AdminUserRegisterComponent', () => {
   
   });
   it('should click button to create a new User', () => {
-    spyOn(component, 'postUser');
+    spyOn(component, 'createUser');
     const button = fixture.nativeElement.querySelectorAll('button')[1];
-    expect(component.postUser).toHaveBeenCalled();
+    button.click();
+    expect(component.createUser).toHaveBeenCalled();
   });
   
 
