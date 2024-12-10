@@ -75,8 +75,13 @@ describe('UserSchoolComponent', () => {
     expect(component.gradeGroupSubject[0]).toEqual({});
   
   });
+  it('should click button to create a new Grade, Group and Subject', () => {
+    const button = fixture.debugElement.query(By.css('button'));
+    button.nativeElement.click();
+    fixture.detectChanges();
+    expect(component.gradeGroupSubject.length).toBe(1);
   
-
+  });
   
 
 });
