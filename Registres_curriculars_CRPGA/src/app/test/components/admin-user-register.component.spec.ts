@@ -72,9 +72,12 @@ describe('UserSchoolComponent', () => {
     component.createGradeGroupSubject();
 
     expect(component.gradeGroupSubject.length).toBe(1);
+    expect(component.gradeGroupSubject.length).toBe(2);
     expect(component.gradeGroupSubject[0]).toEqual({});
   
   });
+  
 
+  
 
 });
