@@ -86,7 +86,7 @@ describe('UserSchoolGroupService', () => {
           expect(response).toEqual(newUser );
         });
       
-        const req = httpMock.expectOne(`${service['dbUrl']}/createUser/`);
+        const req = httpMock.expectOne(`${service['dbUrl']}/createUserSchoolGroup/`);
         expect(req.request.method).toBe('POST');
       
         req.flush(newUser );
