@@ -37,5 +37,30 @@ describe('AdminRegistresUComponent', () => {
     expect(component.isDropdownVisible(dropdownId)).toBeFalse();
   });
 
+  it('should only toggle the specific dropdown container', () => {
+    const dropdownId1 = 'dropdown1';
+    const dropdownId2 = 'dropdown2';
+    const button1 = fixture.debugElement.query(By.css(`#${dropdownId1} button`));
+    const button2 = fixture.debugElement.query(By.css(`#${dropdownId2} button`));
+
+    expect(component.isDropdownVisible(dropdownId1)).toBeFalse();
+    expect(component.isDropdownVisible(dropdownId2)).toBeFalse();
+
+    button1.triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(component.isDropdownVisible(dropdownId1)).toBeTrue();
+    expect(component.isDropdownVisible(dropdownId2)).toBeFalse();
+
+    button2.triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(component.isDropdownVisible(dropdownId1)).toBeTrue();
+    expect(component.isDropdownVisible(dropdownId2)).toBeTrue();
+
+    button1.triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(component.isDropdownVisible(dropdownId1)).toBeFalse();
+    expect(component.isDropdownVisible(dropdownId2)).toBeTrue();
+  });
+
   
 });
