@@ -14,12 +14,13 @@ CREATE TABLE Schools (
 );
 
 CREATE TABLE User_School_Group (
+    id INT NOT NULL PRIMARY Key
     teacher VARCHAR(50) NOT NULL,
     school VARCHAR(50) NOT NULL,
     grade VARCHAR(50) NOT NULL,
     "group" VARCHAR(50) NOT NULL,
     "subject" VARCHAR(50) NOT NULL,
-    PRIMARY KEY (teacher, school, grade, "group", "subject"),
     FOREIGN KEY (teacher) REFERENCES Users(email) ON DELETE CASCADE,
-    FOREIGN KEY (school) REFERENCES Schools(name) ON DELETE CASCADE
+    FOREIGN KEY (school) REFERENCES Schools(name) ON DELETE CASCADE,
 );
+
