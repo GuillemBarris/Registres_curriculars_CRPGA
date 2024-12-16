@@ -61,3 +61,20 @@ export const getGroup = async (req, res) => {
         res.status(500).json({ message: 'Error getting groups', error: err.message });
     }
 };
+
+export const getGrade = async (req, res) => {
+    try {
+       const { school } = req.query;
+       if (!school) {
+           return res.status(400).json({ message: 'School parameter is required' });
+       }
+       let pool = await sql.connect(config);
+       let result = await pool.request()
+            .input('school', sql.VarChar, school)
+            .query('USE Registres_Curriculars; SELECT DISTINCT "grade" FROM Courses WHERE school = @school');
+        res.status(200).json(result.recordset);
+    } catch (err) {
+        res.status(500).json({ message: 'Error getting grades', error: err.message });
+    }
+       
+}
