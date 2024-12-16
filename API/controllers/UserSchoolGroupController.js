@@ -2,16 +2,15 @@ import sql from "mssql";
 import config from "../config/dbConfig.js";
 
 export const createUserSchoolGroup = async (req, res) => {
-    const { teacher, school, grade, group, subject } = req.body;
+    const { teacher, school, id_grade, subject } = req.body;
     try{
         let pool = await sql.connect(config);
         let result = await pool.request()
             .input('teacher', sql.VarChar, teacher)
             .input('school', sql.VarChar, school)
-            .input('grade', sql.VarChar, grade)
-            .input('group', sql.VarChar, group)
+            .input('id_grade', sql.VarChar, id_grade)
             .input('subject', sql.VarChar, subject)
-            .query('USE Registres_Curriculars; INSERT INTO User_School_Group (teacher, school, grade, "group", "subject") VALUES (@teacher, @school, @grade, @group, @subject)');
+            .query('USE Registres_Curriculars; INSERT INTO User_School_Group (teacher, school, id_grade "subject") VALUES (@teacher, @school, @id_grade, @subject)');
         if (result.rowsAffected[0] > 0) {
             res.status(201).json({ message: 'UserSchoolGroup created successfully' });
         }

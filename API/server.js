@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import UserRoutes from './routes/UsersRoutes.js';
 import UserSchoolGroup from './routes/UserSchoolGroupRoutes.js';
+import SchoolsRoutes from './routes/SchoolsRoutes.js';
+import CoursesRoutes from './routes/CoursesRoutes.js';
 
 const app = express();
 
@@ -12,6 +14,8 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/v1/users", UserRoutes);
 app.use("/api/v1/userSchoolGroup", UserSchoolGroup);
+app.use("/api/v1/schools", SchoolsRoutes);
+app.use("/api/v1/courses", CoursesRoutes);
 
 app.listen(PORT, IP, () => {
     console.log(`Server is running on http://${IP}:${PORT}`);
