@@ -12,7 +12,7 @@ CREATE TABLE Schools (
     name VARCHAR(50) NOT NULL,
     PRIMARY KEY (name)
 );
-CREATE TABLE Course (
+CREATE TABLE Courses (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
     grade VARCHAR(50) NOT NULL,
     "group" VARCHAR(50) NOT NULL,
@@ -29,5 +29,5 @@ CREATE TABLE User_School_Group (
     "subject" VARCHAR(50) NOT NULL,
     FOREIGN KEY (teacher) REFERENCES Users(email) ON DELETE CASCADE,
     FOREIGN KEY (school) REFERENCES Schools(name) ON DELETE CASCADE,
-    FOREIGN KEY (id_grade) REFERENCES Course(id ) ON DELETE CASCADE,
+    FOREIGN KEY (id_grade) REFERENCES Courses(id ) ON DELETE CASCADE,
 );
