@@ -18,7 +18,7 @@ CREATE TABLE Courses (
     "group" VARCHAR(50) NOT NULL,
     name VARCHAR(50) NOT NULL,
     year INT NOT NULL,
-    School VARCHAR(50) NOT NULL,
+    school VARCHAR(50) NOT NULL,
 
 )
 CREATE TABLE User_School_Group (
