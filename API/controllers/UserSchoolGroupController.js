@@ -24,17 +24,6 @@ export const createUserSchoolGroup = async (req, res) => {
 
 };
 
-export const getGroup = async (req, res) => { 
-    try {
-        let pool = await sql.connect(config);
-        let result = await pool.request()
-            .query('USE Registres_Curriculars; SELECT DISTINCT "Group" FROM User_School_Group');
-        res.status(200).json(result.recordset);
-    } catch (err) {
-        res.status(500).json({ message: 'Error getting groups', error: err.message });
-    }
-};
-
 export const getGrade = async (req, res) => {
     try {
         let pool = await sql.connect(config);

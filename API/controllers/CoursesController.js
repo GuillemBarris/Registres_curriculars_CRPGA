@@ -26,3 +26,38 @@ export const CreateCourses = async (req, res) => {
       .json({ message: "Error creating user", error: err.message });
   }
 };
+
+export const GetAllCourses = async (req, res) => {
+    try {
+        let pool = await sql.connect(config);
+        let result = await pool
+        .request()
+        .query("USE Registres_Curriculars; SELECT * FROM Courses");
+    
+        res.status(200).json(result.recordset);
+    } catch (err) {
+        res
+        .status(500)
+        .json({ message: "Error getting users", error: err.message });
+    }
+};
+
+
+export const getGroup = async (req, res) => { 
+    try {
+        const { school } = req.query; 
+        
+        if (!school) {
+            return res.status(400).json({ message: 'School parameter is required' });
+        }
+
+        let pool = await sql.connect(config);
+        let result = await pool.request()
+            .input('school', sql.VarChar, school) 
+            .query('USE Registres_Curriculars; SELECT DISTINCT "group" FROM Courses WHERE school = @school');
+        
+        res.status(200).json(result.recordset);
+    } catch (err) {
+        res.status(500).json({ message: 'Error getting groups', error: err.message });
+    }
+};
