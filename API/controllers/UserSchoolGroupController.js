@@ -8,9 +8,9 @@ export const createUserSchoolGroup = async (req, res) => {
         let result = await pool.request()
             .input('teacher', sql.VarChar, teacher)
             .input('school', sql.VarChar, school)
-            .input('id_grade', sql.VarChar, id_grade)
+            .input('id_course', sql.VarChar, id_grade)
             .input('subject', sql.VarChar, subject)
-            .query('USE Registres_Curriculars; INSERT INTO User_School_Group (teacher, school, id_grade "subject") VALUES (@teacher, @school, @id_grade, @subject)');
+            .query('USE Registres_Curriculars; INSERT INTO User_School_Group (teacher, school, id_course, "subject") VALUES (@teacher, @school, @id_course, @subject)');
         if (result.rowsAffected[0] > 0) {
             res.status(201).json({ message: 'UserSchoolGroup created successfully' });
         }
