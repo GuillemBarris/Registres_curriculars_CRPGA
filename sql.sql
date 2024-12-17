@@ -101,3 +101,12 @@ Create Table Skills_SdA (
     FOREIGN KEY (id_skills) REFERENCES Skills(id),
     FOREIGN KEY (id_sda) REFERENCES SdA(id),
 )
+
+Create Table Knowledge_SdA (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    id_Knowledge UNIQUEIDENTIFIER,
+    id_sda UNIQUEIDENTIFIER,
+    [check] BIT NOT NULL,
+    FOREIGN KEY (id_Knowledge) REFERENCES Knowledge(id),
+    FOREIGN KEY (id_sda) REFERENCES SdA(id),
+)
