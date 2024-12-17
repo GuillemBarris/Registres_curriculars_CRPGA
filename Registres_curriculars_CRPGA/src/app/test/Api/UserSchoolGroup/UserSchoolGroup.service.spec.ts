@@ -35,7 +35,7 @@ describe('UserSchoolGroupService', () => {
             expect(groups).toEqual(mockGroups);
         });
 
-        const req = httpMock.expectOne(`${service['dbUrl']}/getGroup/`);
+        const req = httpMock.expectOne(`${service['dbUrl2']}/getGroup/?school=Escola Pia Olot`);
         expect(req.request.method).toBe('GET');
         req.flush(mockGroups);
     });
@@ -69,7 +69,7 @@ describe('UserSchoolGroupService', () => {
             expect(Grades).toEqual(mockClasses);
         });
 
-        const req = httpMock.expectOne(`${service['dbUrl']}/getGrade/`);
+        const req = httpMock.expectOne(`${service['dbUrl2']}/getGrade/?school=Escola Pia Olot`);
         expect(req.request.method).toBe('GET');
         req.flush(mockClasses);
     });

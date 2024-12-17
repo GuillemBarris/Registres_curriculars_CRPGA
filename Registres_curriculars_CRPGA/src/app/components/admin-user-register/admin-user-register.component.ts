@@ -30,7 +30,7 @@ export class AdminUserRegisterComponent implements OnInit {
   ngOnInit(): void {
     this.userSchoolGroupService.getGroups().subscribe(
       (data) => {
-        this.groups = data.map((item: any) => item.Group);
+        this.groups = data.map((item: any) => item.group);
       },
       (error) => {
         console.error('Error fetching groups', error);
@@ -39,6 +39,7 @@ export class AdminUserRegisterComponent implements OnInit {
     this.userSchoolGroupService.getSubjects().subscribe(
       (data) => {
         this.subjects = data.map((item: any) => item.Subject);
+        
       },
       (error) => {
         console.error('Error fetching subjects', error);
@@ -46,7 +47,7 @@ export class AdminUserRegisterComponent implements OnInit {
     );
     this.userSchoolGroupService.getGrades().subscribe(
       (data) => {
-        this.grades = data.map((item: any) => item.Grade);
+        this.grades = data.map((item: any) => item.grade);
       },
       (error) => {
         console.error('Error fetching grades', error);
