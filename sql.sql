@@ -31,3 +31,21 @@ CREATE TABLE User_School_Group (
     FOREIGN KEY (school) REFERENCES Schools(name) ON DELETE CASCADE,
     FOREIGN KEY (id_course) REFERENCES Courses(id ) ON DELETE CASCADE,
 );
+Create Table SdA (
+    id  UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    description VARCHAR(500) NOT NULL,
+    link VARCHAR(255) NOT NULL,
+    id_course UNIQUEIDENTIFIER,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    id_plantilla UNIQUEIDENTIFIER,
+    FOREIGN KEY (id_plantilla) REFERENCES Plantilla(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_course) REFERENCES Courses(id ) ON DELETE CASCADE,
+)
+
+Create Table Plantilla (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    grades VARCHAR(50) NOT NULL,
+
+)
