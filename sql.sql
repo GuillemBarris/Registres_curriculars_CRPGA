@@ -91,3 +91,13 @@ Create Table Knowledge (
     id_category UNIQUEIDENTIFIER,
     FOREIGN KEY (id_category) REFERENCES Categories(id),
 )
+
+
+Create Table Skills_SdA (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    id_skills UNIQUEIDENTIFIER,
+    id_sda UNIQUEIDENTIFIER,
+    [check] Bit NOT NULL,
+    FOREIGN KEY (id_skills) REFERENCES Skills(id),
+    FOREIGN KEY (id_sda) REFERENCES SdA(id),
+)
