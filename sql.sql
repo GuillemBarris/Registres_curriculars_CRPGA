@@ -70,3 +70,10 @@ Create Table Skills (
     id_area UNIQUEIDENTIFIER,
     FOREIGN KEY (id_area) REFERENCES Areas(id)
 )
+
+Create Table Gidelines (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    id_subject UNIQUEIDENTIFIER,
+    FOREIGN KEY (id_subject) REFERENCES Subjects(id)
+)
