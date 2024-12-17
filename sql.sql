@@ -77,3 +77,10 @@ Create Table Gidelines (
     id_subject UNIQUEIDENTIFIER,
     FOREIGN KEY (id_subject) REFERENCES Subjects(id)
 )
+
+Create Table Categories (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    id_subject UNIQUEIDENTIFIER,
+    FOREIGN KEY (id_subject) REFERENCES Subjects(id),
+)
