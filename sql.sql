@@ -42,6 +42,9 @@ Create Table SdA (
     link VARCHAR(255) NOT NULL,
     id_course UNIQUEIDENTIFIER,
     start_date DATE NOT NULL,
- 
+    end_date DATE NOT NULL,
+    id_template UNIQUEIDENTIFIER,
+    FOREIGN KEY (id_template) REFERENCES Templates(id),
+    FOREIGN KEY (id_course) REFERENCES Courses(id ),
 )
 
