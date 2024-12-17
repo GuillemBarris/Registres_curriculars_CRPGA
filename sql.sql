@@ -1,4 +1,3 @@
-CREATE DATABASE Registres_Curriculars;
 USE Registres_Curriculars;
 
 CREATE TABLE Users (
@@ -27,10 +26,15 @@ CREATE TABLE User_School_Group (
     school VARCHAR(50) NOT NULL,
     id_course UNIQUEIDENTIFIER,
     "subject" VARCHAR(50) NOT NULL,
-    FOREIGN KEY (teacher) REFERENCES Users(email) ON DELETE CASCADE,
-    FOREIGN KEY (school) REFERENCES Schools(name) ON DELETE CASCADE,
-    FOREIGN KEY (id_course) REFERENCES Courses(id ) ON DELETE CASCADE,
+    FOREIGN KEY (teacher) REFERENCES Users(email),
+    FOREIGN KEY (school) REFERENCES Schools(name),
+    FOREIGN KEY (id_course) REFERENCES Courses(id ),
 );
+Create Table Templates (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    grades VARCHAR(50) NOT NULL,
+
+)
 Create Table SdA (
     id  UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
@@ -38,14 +42,6 @@ Create Table SdA (
     link VARCHAR(255) NOT NULL,
     id_course UNIQUEIDENTIFIER,
     start_date DATE NOT NULL,
-    end_date DATE NOT NULL,
-    id_plantilla UNIQUEIDENTIFIER,
-    FOREIGN KEY (id_plantilla) REFERENCES Plantilla(id) ON DELETE CASCADE,
-    FOREIGN KEY (id_course) REFERENCES Courses(id ) ON DELETE CASCADE,
+ 
 )
 
-Create Table Plantilla (
-    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
-    grades VARCHAR(50) NOT NULL,
-
-)
