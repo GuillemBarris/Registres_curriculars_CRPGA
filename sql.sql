@@ -63,3 +63,10 @@ Create Table Subjects (
     id_area UNIQUEIDENTIFIER,
     FOREIGN KEY (id_area) REFERENCES Areas(id)
 )
+
+Create Table Skills (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    id_area UNIQUEIDENTIFIER,
+    FOREIGN KEY (id_area) REFERENCES Areas(id)
+)
