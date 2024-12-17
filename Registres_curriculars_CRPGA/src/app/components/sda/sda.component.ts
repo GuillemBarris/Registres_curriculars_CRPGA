@@ -13,11 +13,18 @@ import { Component } from '@angular/core';
 export class SdaComponent {
 
   isDropdownVisible = false;
+  isDropdownVisible2 = false;
 
   toggleDropdown() {
     console.log('Button clicked');
   this.isDropdownVisible = !this.isDropdownVisible;
   console.log('Dropdown visibility:', this.isDropdownVisible);
+  }
+
+  toggleDropdown2() {
+    console.log('Button clicked');
+  this.isDropdownVisible2 = !this.isDropdownVisible2;
+  console.log('Dropdown visibility:', this.isDropdownVisible2);
   }
 
 }
