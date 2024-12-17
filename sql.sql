@@ -56,3 +56,10 @@ Create Table Areas (
     id_template UNIQUEIDENTIFIER,
     FOREIGN KEY (id_template) REFERENCES Templates(id)
     )
+
+Create Table Subjects (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    id_area UNIQUEIDENTIFIER,
+    FOREIGN KEY (id_area) REFERENCES Areas(id)
+)
