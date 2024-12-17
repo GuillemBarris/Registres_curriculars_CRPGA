@@ -67,15 +67,15 @@ Create Table Subjects (
 Create Table Skills (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    id_area UNIQUEIDENTIFIER,
-    FOREIGN KEY (id_area) REFERENCES Areas(id)
+    id_subject UNIQUEIDENTIFIER,
+    FOREIGN KEY (id_subject) REFERENCES Subjects(id),
 )
 
 Create Table Gidelines (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    id_subject UNIQUEIDENTIFIER,
-    FOREIGN KEY (id_subject) REFERENCES Subjects(id)
+    id_skills UNIQUEIDENTIFIER,
+    FOREIGN KEY (id_skills) REFERENCES Skills(id),
 )
 
 Create Table Categories (
@@ -92,13 +92,12 @@ Create Table Knowledge (
     FOREIGN KEY (id_category) REFERENCES Categories(id),
 )
 
-
-Create Table Skills_SdA (
+Create Table Gidelines_SdA (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
     id_skills UNIQUEIDENTIFIER,
     id_sda UNIQUEIDENTIFIER,
     [check] Bit NOT NULL,
-    FOREIGN KEY (id_skills) REFERENCES Skills(id),
+    FOREIGN KEY (id_gidlines) REFERENCES Gidelines(id),
     FOREIGN KEY (id_sda) REFERENCES SdA(id),
 )
 
