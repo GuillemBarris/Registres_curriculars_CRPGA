@@ -48,3 +48,11 @@ Create Table SdA (
     FOREIGN KEY (id_course) REFERENCES Courses(id ),
 )
 
+
+Create Table Areas (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    id_template UNIQUEIDENTIFIER,
+    FOREIGN KEY (id_template) REFERENCES Templates(id)
+    )
