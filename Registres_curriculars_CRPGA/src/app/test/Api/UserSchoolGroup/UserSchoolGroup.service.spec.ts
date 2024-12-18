@@ -91,4 +91,20 @@ describe('UserSchoolGroupService', () => {
       
         req.flush(newUser );
       });
+
+    it('should fetch course id from email', () => {
+        const email = 'example@gmail.com';
+        const mockCourse = {
+            "courseId": 1,
+            "courseName": "Course1"
+        };
+
+        service.getCourseIdFromMail(email).subscribe(course => {
+            expect(course).toEqual(mockCourse);
+        });
+
+        const req = httpMock.expectOne(`${service['dbUrl2']}/getCoursesFromTeacher/?email=${email}`);
+        expect(req.request.method).toBe('GET');
+        req.flush(mockCourse);
+    });
 });
