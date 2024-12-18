@@ -94,10 +94,10 @@ Create Table Knowledge (
 
 Create Table Gidelines_SdA (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
-    id_skills UNIQUEIDENTIFIER,
+    id_gidelines UNIQUEIDENTIFIER,
     id_sda UNIQUEIDENTIFIER,
     [check] Bit NOT NULL,
-    FOREIGN KEY (id_gidlines) REFERENCES Gidelines(id),
+    FOREIGN KEY (id_gidelines) REFERENCES Gidelines(id),
     FOREIGN KEY (id_sda) REFERENCES SdA(id),
 )
 
@@ -107,5 +107,27 @@ Create Table Knowledge_SdA (
     id_sda UNIQUEIDENTIFIER,
     [check] BIT NOT NULL,
     FOREIGN KEY (id_Knowledge) REFERENCES Knowledge(id),
+    FOREIGN KEY (id_sda) REFERENCES SdA(id),
+)
+Create Table Vectors (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    id_template UNIQUEIDENTIFIER,
+    FOREIGN KEY (id_template) REFERENCES Templates(id),
+)
+Create Table Vectors_SdA (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    id_vectors UNIQUEIDENTIFIER,
+    id_sda UNIQUEIDENTIFIER,
+    [check] BIT NOT NULL,
+    FOREIGN KEY (id_vectors) REFERENCES Vectors(id),
+    FOREIGN KEY (id_sda) REFERENCES SdA(id),
+)
+Create Table Skills_SdA (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    id_skills UNIQUEIDENTIFIER,
+    id_sda UNIQUEIDENTIFIER,
+    [check] BIT NOT NULL,
+    FOREIGN KEY (id_skills) REFERENCES Skills(id),
     FOREIGN KEY (id_sda) REFERENCES SdA(id),
 )
