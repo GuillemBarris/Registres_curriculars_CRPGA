@@ -123,3 +123,11 @@ Create Table Vectors_SdA (
     FOREIGN KEY (id_vectors) REFERENCES Vectors(id),
     FOREIGN KEY (id_sda) REFERENCES SdA(id),
 )
+Create Table Skills_SdA (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    id_skills UNIQUEIDENTIFIER,
+    id_sda UNIQUEIDENTIFIER,
+    [check] BIT NOT NULL,
+    FOREIGN KEY (id_skills) REFERENCES Skills(id),
+    FOREIGN KEY (id_sda) REFERENCES SdA(id),
+)
