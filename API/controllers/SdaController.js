@@ -2,11 +2,10 @@ import sql from 'mssql';
 import config from '../config/dbConfig.js';
 
 export const CreateSda  = async (req, res) => {
-    const { id, title, description, link, id_course, start_date, end_date, id_template } = req.body;
+    const { title, description, link, id_course, start_date, end_date, id_template } = req.body;
     try {
         let pool = await sql.connect(config);
         let result = await pool.request()
-            .input('id', sql.Int, id)
             .input('title', sql.VarChar, title)
             .input('description', sql.VarChar, description)
             .input('link', sql.VarChar, link)
