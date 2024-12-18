@@ -115,3 +115,11 @@ Create Table Vectors (
     id_vectors UNIQUEIDENTIFIER,
     FOREIGN KEY (id_vectors) REFERENCES Vectors(id),
 )
+Create Table Vectors_SdA (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    id_vectors UNIQUEIDENTIFIER,
+    id_sda UNIQUEIDENTIFIER,
+    [check] BIT NOT NULL,
+    FOREIGN KEY (id_vectors) REFERENCES Vectors(id),
+    FOREIGN KEY (id_sda) REFERENCES SdA(id),
+)
