@@ -109,3 +109,9 @@ Create Table Knowledge_SdA (
     FOREIGN KEY (id_Knowledge) REFERENCES Knowledge(id),
     FOREIGN KEY (id_sda) REFERENCES SdA(id),
 )
+Create Table Vectors (
+    id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    id_vectors UNIQUEIDENTIFIER,
+    FOREIGN KEY (id_vectors) REFERENCES Vectors(id),
+)
