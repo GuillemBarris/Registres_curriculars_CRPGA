@@ -112,8 +112,8 @@ Create Table Knowledge_SdA (
 Create Table Vectors (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    id_vectors UNIQUEIDENTIFIER,
-    FOREIGN KEY (id_vectors) REFERENCES Vectors(id),
+    id_template UNIQUEIDENTIFIER,
+    FOREIGN KEY (id_template) REFERENCES Templates(id),
 )
 Create Table Vectors_SdA (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
