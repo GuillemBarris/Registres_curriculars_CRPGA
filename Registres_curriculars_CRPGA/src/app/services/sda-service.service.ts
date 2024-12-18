@@ -10,8 +10,10 @@ export class SdaServiceService {
 
   constructor(private http: HttpClient) {}
 
-  getCourses(email: string) {
-    return this.http.get<any[]>(`${this.dbUrl}/courses/${email}`);
+  getSdaFromCourse(courseId: number) {
+    return this.http.get<any>(`${this.dbUrl}/getSdaFromCourse/?courseId=${courseId}`);
   }
+
+  
   
 }
