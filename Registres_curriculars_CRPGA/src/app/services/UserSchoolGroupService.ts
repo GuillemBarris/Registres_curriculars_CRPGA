@@ -20,6 +20,9 @@ export class UserSchoolGroupService {
     getGrades(): Observable<any> {
         return this.http.get<any>(`${this.dbUrl2}/getGrade/?school=Escola Pia Olot`);
     }
+    getCourseIdFromMail(email: string): Observable<any> {
+        return this.http.get<any>(`${this.dbUrl2}/getCoursesFromTeacher/?email=${email}`);
+    }
     postUserSchoolGroup(user: any): Observable<any> {
         return this.http.post<any>(`${this.dbUrl}/createUserSchoolGroup/`, user).pipe(
           catchError((err) => {
