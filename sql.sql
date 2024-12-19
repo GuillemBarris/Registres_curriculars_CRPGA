@@ -51,8 +51,7 @@ Create Table SdA (
 
 Create Table Areas (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    type VARCHAR(50) NOT NULL,
+    name VARCHAR(500) NOT NULL,
     id_template UNIQUEIDENTIFIER,
     FOREIGN KEY (id_template) REFERENCES Templates(id)
     )
