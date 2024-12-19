@@ -72,7 +72,7 @@ Create Table Skills (
 
 Create Table Gidelines (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(500) NOT NULL,
     id_skills UNIQUEIDENTIFIER,
     FOREIGN KEY (id_skills) REFERENCES Skills(id),
 )
