@@ -86,7 +86,7 @@ Create Table Categories (
 
 Create Table Knowledge (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(500) NOT NULL,
     id_category UNIQUEIDENTIFIER,
     FOREIGN KEY (id_category) REFERENCES Categories(id),
 )
