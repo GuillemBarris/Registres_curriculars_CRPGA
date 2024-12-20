@@ -11,8 +11,18 @@
   
     <h2>Curs 2024-2025</h2>
 
+    <div id="grid" class="grid">
+      <a *ngFor="let sda of sdaList" class="grid-element" href="http://localhost:4200/sda">{{sda.title}} <span class="img-container"><img src="assets/img/registry.png" alt="Document Icon"></span></a>
+    </div>
+    <a class="grid-element" href="http://localhost:4200/summary">Resum <span class="img-container"><img src="assets/img/registry.png" alt="Document Icon"></span></a>
 
-  
+
+
+    
+
+    <!-- should get the sda dynamically from the logged in mail -->
+
+  <!--
     <div id="grid" class="grid">
         <a class="grid-element" href="http://localhost:4200/sda">SDA1 <span class="img-container"><img src="assets/img/registry.png" alt="Document Icon"></span></a>
         <a class="grid-element" href="http://localhost:4200/sda">SDA2 <span class="img-container"><img src="assets/img/registry.png" alt="Document Icon"></span></a>
@@ -23,6 +33,6 @@
         <a class="grid-element" href="http://localhost:4200/sda">SDA7 <span class="img-container"><img src="assets/img/registry.png" alt="Document Icon"></span></a>
         <a class="grid-element" href="http://localhost:4200/sda">SDA8 <span class="img-container"><img src="assets/img/registry.png" alt="Document Icon"></span></a>
         <a class="grid-element" href="http://localhost:4200/summary">Resum <span class="img-container"><img src="assets/img/registry.png" alt="Document Icon"></span></a>
-    </div>
-  </div>
+    </div> -->
+  </div> 
 </body>

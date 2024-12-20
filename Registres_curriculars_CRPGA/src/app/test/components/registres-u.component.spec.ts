@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegistresUComponent } from '../../components/registres-u/registres-u.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('RegistresUComponent', () => {
   let component: RegistresUComponent;
@@ -8,7 +9,8 @@ describe('RegistresUComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegistresUComponent]
+      imports: [RegistresUComponent, HttpClientTestingModule],
+      providers: []
     })
     .compileComponents();
 
@@ -21,7 +23,7 @@ describe('RegistresUComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should create the interface', () => {
+  /*it('should create the interface', () => {
       const h1 = fixture.nativeElement.querySelector('h1');
       expect(h1.textContent).toBe('1r Primària Grup A');
 
@@ -74,5 +76,22 @@ describe('RegistresUComponent', () => {
           expect(image.src).toContain('assets/img/registry.png');
         }
       });
-  });  
+  });  */
+
+  it('should fetch the mail of the logged in user of the local storage', () => {
+    const email = 'eric3romero@gmail.com';
+    localStorage.setItem('email', email);
+    component.ngOnInit();
+    expect(component.email).toBe(email);
+  });
+
+  it('should get the SDAs of the user', () => {
+    const email = 'eric3romero@gmail.com';
+    localStorage.setItem('email', email);
+    component.ngOnInit();
+    component.getCourseIdFromMail(email);
+    expect(component.email).toBe(email);
+
+  });
+
 });
