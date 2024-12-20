@@ -51,43 +51,42 @@ Create Table SdA (
 
 Create Table Areas (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    type VARCHAR(50) NOT NULL,
+    name VARCHAR(500) NOT NULL,
     id_template UNIQUEIDENTIFIER,
     FOREIGN KEY (id_template) REFERENCES Templates(id)
     )
 
 Create Table Subjects (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(500) NOT NULL,
     id_area UNIQUEIDENTIFIER,
     FOREIGN KEY (id_area) REFERENCES Areas(id)
 )
 
 Create Table Skills (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(500) NOT NULL,
     id_subject UNIQUEIDENTIFIER,
     FOREIGN KEY (id_subject) REFERENCES Subjects(id),
 )
 
 Create Table Gidelines (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(500) NOT NULL,
     id_skills UNIQUEIDENTIFIER,
     FOREIGN KEY (id_skills) REFERENCES Skills(id),
 )
 
 Create Table Categories (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(500) NOT NULL,
     id_subject UNIQUEIDENTIFIER,
     FOREIGN KEY (id_subject) REFERENCES Subjects(id),
 )
 
 Create Table Knowledge (
     id UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(500) NOT NULL,
     id_category UNIQUEIDENTIFIER,
     FOREIGN KEY (id_category) REFERENCES Categories(id),
 )
