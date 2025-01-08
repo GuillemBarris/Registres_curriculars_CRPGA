@@ -14,13 +14,13 @@ export const CreateSchool = async (req, res) => {
       );
 
     if (result.rowsAffected[0] > 0) {
-      res.status(201).json({ message: "User  created successfully" });
+      res.status(201).json({ message: "Schools  created successfully" });
     } else {
-      res.status(400).json({ message: "User  creation failed" });
+      res.status(400).json({ message: "Schools  creation failed" });
     }
   } catch (err) {
     res
       .status(500)
-      .json({ message: "Error creating user", error: err.message });
+      .json({ message: "Error creating Schools", error: err.message });
   }
 };
