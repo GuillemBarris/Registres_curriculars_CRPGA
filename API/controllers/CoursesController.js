@@ -16,14 +16,14 @@ export const CreateCourses = async (req, res) => {
         'USE Registres_Curriculars; INSERT INTO Courses (grade, "group", name, year, school) VALUES (@grade, @group, @name, @year, @school)'
       );
     if (result.rowsAffected[0] > 0) {
-      res.status(201).json({ message: "User  created successfully" });
+      res.status(201).json({ message: "Courses  created successfully" });
     } else {
-      res.status(400).json({ message: "User  creation failed" });
+      res.status(400).json({ message: "Courses  creation failed" });
     }
   } catch (err) {
     res
       .status(500)
-      .json({ message: "Error creating user", error: err.message });
+      .json({ message: "Error creating Course", error: err.message });
   }
 };
 
