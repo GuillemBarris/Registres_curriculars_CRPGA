@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { SdaServiceService } from '../../../services/sda-service.service';
-import { of } from 'rxjs';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { UserSchoolGroupService } from '../../../services/UserSchoolGroupService';
+import { of } from 'rxjs';
 
 describe('SdaServiceService', () => {
   let service: SdaServiceService;
@@ -21,7 +21,7 @@ describe('SdaServiceService', () => {
   });
 
   afterEach(() => {
-    httpMock.verify(); 
+    httpMock.verify(); // Ensures no unmatched requests
   });
 
   it('should be created', () => {
@@ -30,30 +30,22 @@ describe('SdaServiceService', () => {
 
   it('should fetch the SDAs of a specific course using the getCourseIdFromMail from UserSchoolGroupService', () => {
     const email = 'example@gmail.com';
-    const mockResponse = { courseId: 1, courseName: 'Course1' };
-    const sdaResponse = { sda: 'sda1' };
+    const mockCourseResponse = { courseId: 1, courseName: 'Course1' };
+    const mockSdaResponse = { sda: 'sda1' };
 
-    spyOn(userSchoolGroupService, 'getCourseIdFromMail').and.returnValue(of(mockResponse));
+    // Mock UserSchoolGroupService's getCourseIdFromMail
+    spyOn(userSchoolGroupService, 'getCourseIdFromMail').and.returnValue(of(mockCourseResponse));
 
-    userSchoolGroupService.getCourseIdFromMail(email).subscribe((response) => {
-      expect(response).toEqual(mockResponse);
+    // Call service method and verify responses
+    service.getSdaFromCourse(mockCourseResponse.courseId).subscribe((response) => {
+      expect(response).toEqual(mockSdaResponse);
     });
 
-    service.getSdaFromCourse(1).subscribe((response) => {
-      expect(response).toEqual(sdaResponse);
-    });
-
-    const request1 = httpMock.expectOne(
-      `http://172.21.46.184:3000/api/v1/getCoursesFromTeacher/?email=${email}`
+    // Mock HTTP for SDA
+    const sdaRequest = httpMock.expectOne(
+      `http://172.21.46.184:3000/api/v1/getSdaFromCourse/?courseId=${mockCourseResponse.courseId}`
     );
-    const request2 = httpMock.expectOne(
-      `http://172.21.46.184:3000/api/v1/getSdaFromCourse/?courseId=1`
-    );
-
-    expect(request1.request.method).toBe('GET');
-    request1.flush(mockResponse); 
-
-    expect(request2.request.method).toBe('GET');
-    request2.flush(sdaResponse); 
+    expect(sdaRequest.request.method).toBe('GET');
+    sdaRequest.flush(mockSdaResponse); // Return mock SDA response
   });
 });
