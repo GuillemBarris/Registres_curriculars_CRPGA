@@ -8,6 +8,7 @@ import SdaRoutes from './routes/SdaRoutes.js';
 import CatoegoriesRoutes from './routes/CategoriesRoutes.js';
 import KnoweledgesRoutes from './routes/KnowledgesRoutes.js';
 import SkillsRoutes from './routes/SkillsRoutes.js';
+import GidelinesRoutes from './routes/GidelinesRoutes.js';
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use("/api/v1/sda", SdaRoutes);
 app.use("/api/v1/categories", CatoegoriesRoutes)
 app.use("/api/v1/knowledge", KnoweledgesRoutes)
 app.use("/api/v1/skills/", SkillsRoutes)
+app.use("/api/v1/gidelines/", GidelinesRoutes)
 
 app.listen(PORT, IP, () => {
     console.log(`Server is running on http://${IP}:${PORT}`);
