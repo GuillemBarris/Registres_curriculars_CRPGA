@@ -23,3 +23,21 @@ export const CreateCategories = async (req, res) => {
       .json({ message: "Error creating user", error: err.message });
   }
 };
+
+export const GetCategoriesByIdSubject = async (req, res) => {
+  const { id_subject } = req.params;
+  try {
+    let pool = await sql.connect(config);
+    let result = await pool
+      .request()
+      .input("id_subject", sql.VarChar, id_subject)
+      .query(
+        "USE Registres_Curriculars; SELECT * FROM Categories WHERE id_subject = @id_subject"
+      );
+    res.status(200).json(result.recordset);
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: "Error getting Categories", error: err.message });
+  }
+}
