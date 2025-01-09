@@ -6,6 +6,7 @@ import SchoolsRoutes from './routes/SchoolsRoutes.js';
 import CoursesRoutes from './routes/CoursesRoutes.js';
 import SdaRoutes from './routes/SdaRoutes.js';
 import CatoegoriesRoutes from './routes/CategoriesRoutes.js';
+import KnoweledgesRoutes from './routes/KnowledgesRoutes.js';
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use("/api/v1/schools", SchoolsRoutes);
 app.use("/api/v1/courses", CoursesRoutes);
 app.use("/api/v1/sda", SdaRoutes);
 app.use("/api/v1/categories", CatoegoriesRoutes)
+app.use("/api/v1/knowledge", KnoweledgesRoutes)
 
 app.listen(PORT, IP, () => {
     console.log(`Server is running on http://${IP}:${PORT}`);
