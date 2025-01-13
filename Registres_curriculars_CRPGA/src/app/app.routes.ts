@@ -7,6 +7,7 @@ import { AdminHomeComponent } from './components/admin-home/admin-home.component
 import { AdminUserListComponent } from './components/admin-user-list/admin-user-list.component';
 import { AdminRegistresUComponent } from './components/admin-registres-u/admin-registres-u.component';
 import { AdminUserRegisterComponent } from './components/admin-user-register/admin-user-register.component';
+import { FormSdaComponent } from './components/form-sda/form-sda.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -17,7 +18,8 @@ export const routes: Routes = [
     {path: 'admin-home', component: AdminHomeComponent},
     {path: 'admin-user-list', component: AdminUserListComponent},
     {path: 'admin-registres-u', component: AdminRegistresUComponent},
-    {path: 'admin-register', component: AdminUserRegisterComponent}
+    {path: 'admin-register', component: AdminUserRegisterComponent},
+    {path: 'form-sda', component: FormSdaComponent}
 
 
 ];

@@ -3,6 +3,7 @@ import { SdaServiceService } from '../../services/sda-service.service';
 import { UserSchoolGroupService } from '../../services/UserSchoolGroupService';
 import { CommonModule } from '@angular/common';
 import { provideHttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class RegistresUComponent {
 
   sdaList: any;
   email: any;
-  constructor(private userSchoolGroupService: UserSchoolGroupService, private sdaService: SdaServiceService) {}
+  constructor(private userSchoolGroupService: UserSchoolGroupService, private sdaService: SdaServiceService, private router: Router) {}
 
   ngOnInit() {
     if (typeof window !== 'undefined' && localStorage) {
@@ -38,7 +39,9 @@ export class RegistresUComponent {
       console.log(response);
     });
   }
-  
+  navigateToFormSda() {
+    this.router.navigate(['form-sda']);
+  }
 }
 
 

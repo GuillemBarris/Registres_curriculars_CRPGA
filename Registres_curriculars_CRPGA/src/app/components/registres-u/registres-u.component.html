@@ -10,7 +10,7 @@
   <div class="content">
   
     <h2>Curs 2024-2025</h2>
-
+    <button (click)="navigateToFormSda()" class="navigate-to-form-sda">Toggle Dropdown</button>
     <div id="grid" class="grid">
       <a *ngFor="let sda of sdaList" class="grid-element" href="http://localhost:4200/sda">{{sda.title}} <span class="img-container"><img src="assets/img/registry.png" alt="Document Icon"></span></a>
     </div>
