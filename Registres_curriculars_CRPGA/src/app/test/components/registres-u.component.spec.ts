@@ -93,5 +93,11 @@ describe('RegistresUComponent', () => {
     expect(component.email).toBe(email);
 
   });
+  it('should have a button to navigate to page form-sda', () => {
+    const navigateSpy = spyOn(component['router'], 'navigate');
+    const button = fixture.debugElement.nativeElement.querySelector('button.navigate-to-form-sda');
+    button.click();
+    expect(navigateSpy).toHaveBeenCalledWith(['form-sda']);
+  });
 
 });
