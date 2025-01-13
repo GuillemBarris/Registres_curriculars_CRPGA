@@ -14,6 +14,4 @@ export class SdaServiceService {
     return this.http.get<any>(`${this.dbUrl}/getSdaFromCourse/?courseId=${courseId}`);
   }
 
-  
-  
 }

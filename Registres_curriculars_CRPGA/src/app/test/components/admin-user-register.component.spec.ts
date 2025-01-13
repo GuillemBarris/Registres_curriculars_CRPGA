@@ -11,7 +11,7 @@ describe('AdminUserRegisterComponent', () => {
     await TestBed.configureTestingModule({
       imports: [AdminUserRegisterComponent, HttpClientTestingModule]
     })
-    .compileComponents();
+    .compileComponents(); 
 
     fixture = TestBed.createComponent(AdminUserRegisterComponent);
     component = fixture.componentInstance;

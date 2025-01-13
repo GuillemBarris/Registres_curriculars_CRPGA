@@ -21,7 +21,7 @@ describe('SdaServiceService', () => {
   });
 
   afterEach(() => {
-    httpMock.verify(); // Ensures no unmatched requests
+    httpMock.verify(); 
   });
 
   it('should be created', () => {
@@ -33,19 +33,16 @@ describe('SdaServiceService', () => {
     const mockCourseResponse = { courseId: 1, courseName: 'Course1' };
     const mockSdaResponse = { sda: 'sda1' };
 
-    // Mock UserSchoolGroupService's getCourseIdFromMail
     spyOn(userSchoolGroupService, 'getCourseIdFromMail').and.returnValue(of(mockCourseResponse));
 
-    // Call service method and verify responses
     service.getSdaFromCourse(mockCourseResponse.courseId).subscribe((response) => {
       expect(response).toEqual(mockSdaResponse);
     });
 
-    // Mock HTTP for SDA
     const sdaRequest = httpMock.expectOne(
       `http://172.21.46.184:3000/api/v1/getSdaFromCourse/?courseId=${mockCourseResponse.courseId}`
     );
     expect(sdaRequest.request.method).toBe('GET');
-    sdaRequest.flush(mockSdaResponse); // Return mock SDA response
+    sdaRequest.flush(mockSdaResponse); 
   });
 });

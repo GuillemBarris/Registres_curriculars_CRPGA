@@ -20,12 +20,11 @@ export class RegistresUComponent {
   constructor(private userSchoolGroupService: UserSchoolGroupService, private sdaService: SdaServiceService) {}
 
   ngOnInit() {
-    //get email from local storage
-    this.email = localStorage.getItem('email');
-    
+    if (typeof window !== 'undefined' && localStorage) {
+      localStorage.setItem('key', 'value');
+    }    
   }
 
-  //get the course id from the email
   getCourseIdFromMail(email: string) {
     this.userSchoolGroupService.getCourseIdFromMail(email).subscribe((response) => {
       this.sdaService.getSdaFromCourse(response.courseId).subscribe((response) => {
@@ -34,13 +33,11 @@ export class RegistresUComponent {
     });
   }
 
-  //get the sda list from the course id
   getSdaFromCourse(courseId: number) {
     this.sdaService.getSdaFromCourse(courseId).subscribe((response) => {
       console.log(response);
     });
   }
-  
   
 }
 
