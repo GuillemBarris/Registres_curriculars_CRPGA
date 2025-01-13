@@ -1,6 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { SdaServiceService } from '../../../services/sda-service.service';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { UserSchoolGroupService } from '../../../services/UserSchoolGroupService';
 import { of } from 'rxjs';
 
@@ -21,7 +24,7 @@ describe('SdaServiceService', () => {
   });
 
   afterEach(() => {
-    httpMock.verify(); 
+    httpMock.verify();
   });
 
   it('should be created', () => {
@@ -33,19 +36,37 @@ describe('SdaServiceService', () => {
     const mockCourseResponse = { courseId: 1, courseName: 'Course1' };
     const mockSdaResponse = { sda: 'sda1' };
 
-    spyOn(userSchoolGroupService, 'getCourseIdFromMail').and.returnValue(of(mockCourseResponse));
+    spyOn(userSchoolGroupService, 'getCourseIdFromMail').and.returnValue(
+      of(mockCourseResponse)
+    );
 
-    service.getSdaFromCourse(mockCourseResponse.courseId).subscribe((response) => {
-      expect(response).toEqual(mockSdaResponse);
-    });
+    service
+      .getSdaFromCourse(mockCourseResponse.courseId)
+      .subscribe((response) => {
+        expect(response).toEqual(mockSdaResponse);
+      });
 
     const sdaRequest = httpMock.expectOne(
       `http://172.21.46.184:3000/api/v1/getSdaFromCourse/?courseId=${mockCourseResponse.courseId}`
     );
     expect(sdaRequest.request.method).toBe('GET');
-    sdaRequest.flush(mockSdaResponse); 
+    sdaRequest.flush(mockSdaResponse);
   });
   it('should create a new SDA', () => {
-    
+    const newSda = {
+      title: 'test',
+      description: 'test',
+      link: 'test',
+      start_date: '2021-12-12',
+      end_date: '2021-12-12',
+      id_template: 1,
+    };
+    service.postSda(newSda).subscribe((response) => {
+      expect(response).toEqual(newSda);
+    });
+    const req = httpMock.expectOne(`${service['dbUrl']}/createSda/`);
+    expect(req.request.method).toBe('POST');
+
+    req.flush(newSda);
   });
 });
