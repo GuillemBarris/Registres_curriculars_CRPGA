@@ -9,11 +9,11 @@ export const CreateSda  = async (req, res) => {
             .input('title', sql.VarChar, title)
             .input('description', sql.VarChar, description)
             .input('link', sql.VarChar, link)
-            .input('id_course', sql.Int, id_course)
+            .input('id_course', sql.VarChar, id_course)
             .input('start_date', sql.Date, start_date)
             .input('end_date', sql.Date, end_date)
-            .input('id_template', sql.Int, id_template)
-            .query('USE Registres_Curriculars; INSERT INTO Sda (id, title, description, link, id_course, start_date, end_date, id_template) VALUES (@id, @title, @description, @link, @id_course, @start_date, @end_date, @id_template)');
+            .input('id_template', sql.VarChar, id_template)
+            .query('USE Registres_Curriculars; INSERT INTO Sda ( title, description, link, id_course, start_date, end_date, id_template) VALUES ( @title, @description, @link, @id_course, @start_date, @end_date, @id_template)');
         if (result.rowsAffected[0] > 0) {
             res.status(201).json({ message: 'Sda created successfully' });
         }
