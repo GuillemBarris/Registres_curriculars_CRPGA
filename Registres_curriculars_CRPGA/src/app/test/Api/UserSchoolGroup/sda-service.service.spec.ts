@@ -57,6 +57,7 @@ describe('SdaServiceService', () => {
       title: 'test',
       description: 'test',
       link: 'test',
+      id_course: '1',
       start_date: '2021-12-12',
       end_date: '2021-12-12',
       id_template: 1,
