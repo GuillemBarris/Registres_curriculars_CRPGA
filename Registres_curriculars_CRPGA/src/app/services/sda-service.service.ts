@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class SdaServiceService {
 
-  private dbUrl = 'http://172.21.46.184:3000/api/v1'; 
+  private dbUrl = 'http://172.21.46.184:3000/api/v1/sda'; 
 
   constructor(private http: HttpClient) {}
 
