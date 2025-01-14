@@ -17,10 +17,15 @@ export class LoginComponent {
       const responsePayload = this.decodeJWTToken(response.credential);
       console.log(responsePayload);
 
+
+
       this.userService.isUserRegistered(responsePayload.email).subscribe({
         next: (isRegistered) => {
           if (isRegistered) {
             sessionStorage.setItem('loggedinUser', JSON.stringify(responsePayload));
+            localStorage.setItem('email', responsePayload.email);
+
+            this.router.navigate(['/registres-u']);            
             window.location.href = '/login';
           } else {
             alert('User is not registered.');
@@ -46,4 +51,6 @@ export class LoginComponent {
       throw new Error('Invalid JWT token format.');
     }
   }
+
+  
 }
