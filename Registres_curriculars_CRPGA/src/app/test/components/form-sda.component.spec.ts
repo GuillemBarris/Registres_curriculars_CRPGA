@@ -45,6 +45,7 @@ describe('FormSdaComponent', () => {
   fixture.detectChanges();
   expect(linkInput.nativeElement.value).toBe('http://localhost:4200/sda');
  })
+
  it('should add new startDate', () => {
   const startDateInput = fixture.debugElement.query(By.css('input[placeholder="Data d\'inici"]'));
   startDateInput.nativeElement.value = '2021-07-01';
@@ -52,5 +53,13 @@ describe('FormSdaComponent', () => {
   fixture.detectChanges();
   expect(startDateInput.nativeElement.value).toBe('2021-07-01');
  });
+
+ it('should add new endDate', ()=> {
+  const endDateInput = fixture.debugElement.query(By.css('input[placeholder="Data de finalització"]'));
+  endDateInput.nativeElement.value = '2021-07-01';
+  endDateInput.nativeElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+  expect(endDateInput.nativeElement.value).toBe('2021-07-01');
+ })
 
 });
