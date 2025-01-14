@@ -37,5 +37,13 @@ describe('FormSdaComponent', () => {
     fixture.detectChanges();
     expect(descriptionInput.nativeElement.value).toBe('SDA');
  })
+ 
+ it('should add new Link', () => {
+  const linkInput = fixture.debugElement.query(By.css('input[placeholder="Enllaç"]'));
+  linkInput.nativeElement.value = 'http://localhost:4200/sda';
+  linkInput.nativeElement.dispatchEvent(new Event('input'));
+  fixture.detectChanges();
+  expect(linkInput.nativeElement.value).toBe('http://localhost:4200/sda');
+ })
 
 });
