@@ -47,7 +47,7 @@ describe('SdaServiceService', () => {
       });
 
     const sdaRequest = httpMock.expectOne(
-      `http://172.21.46.184:3000/api/v1/getSdaFromCourse/?courseId=${mockCourseResponse.courseId}`
+      `http://172.21.46.184:3000/api/v1/sda/getSdaFromCourse/?courseId=${mockCourseResponse.courseId}`
     );
     expect(sdaRequest.request.method).toBe('GET');
     sdaRequest.flush(mockSdaResponse);
