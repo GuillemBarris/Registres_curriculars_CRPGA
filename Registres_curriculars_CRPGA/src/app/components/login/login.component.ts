@@ -27,6 +27,11 @@ export class LoginComponent {
 
                        
             window.location.href = '/registres-u';
+
+            this.router.navigate(['/registres-u']);
+
+            
+            
           } else {
             alert('User is not registered.');
           }
