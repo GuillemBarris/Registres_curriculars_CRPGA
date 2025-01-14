@@ -21,8 +21,10 @@ export class RegistresUComponent {
   constructor(private userSchoolGroupService: UserSchoolGroupService, private sdaService: SdaServiceService, private router: Router) {}
 
   ngOnInit() {
+
     if (typeof window !== 'undefined' && localStorage) {
       localStorage.setItem('key', 'value');
+      this.email = localStorage.getItem('email');
     }    
   }
 
