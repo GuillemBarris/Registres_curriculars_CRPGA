@@ -62,4 +62,11 @@ describe('FormSdaComponent', () => {
   expect(endDateInput.nativeElement.value).toBe('2021-07-01');
  })
 
+ it('should click button create new SDA', () => {
+   spyOn(component, 'createSda');
+   const button = fixture.nativeElement.querySelectorAll('button')[0];
+   button.click();
+   expect(component.createSda).toHaveBeenCalled();
+ })
+
 });
