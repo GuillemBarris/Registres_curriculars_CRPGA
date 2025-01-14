@@ -103,7 +103,7 @@ describe('UserSchoolGroupService', () => {
             expect(course).toEqual(mockCourse);
         });
 
-        const req = httpMock.expectOne(`${service['dbUrl2']}/getCoursesFromTeacher/?email=${email}`);
+        const req = httpMock.expectOne(`${service['dbUrl']}/getCoursesFromTeacher/?teacher=${email}`);
         expect(req.request.method).toBe('GET');
         req.flush(mockCourse);
     });
