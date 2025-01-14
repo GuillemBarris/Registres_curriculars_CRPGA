@@ -30,4 +30,12 @@ describe('FormSdaComponent', () => {
     expect(titleInput.nativeElement.value).toBe('SDA');
 });
 
+ it('should add new Description', () => {
+    const descriptionInput = fixture.debugElement.query(By.css('input[placeholder="Descripció"]'));
+    descriptionInput.nativeElement.value = 'SDA';
+    descriptionInput.nativeElement.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    expect(descriptionInput.nativeElement.value).toBe('SDA');
+ })
+
 });
