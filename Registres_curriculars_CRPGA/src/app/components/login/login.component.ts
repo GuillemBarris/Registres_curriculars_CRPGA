@@ -25,8 +25,8 @@ export class LoginComponent {
             sessionStorage.setItem('loggedinUser', JSON.stringify(responsePayload));
             localStorage.setItem('email', responsePayload.email);
 
-            this.router.navigate(['/registres-u']);            
-            window.location.href = '/login';
+                       
+            window.location.href = '/registres-u';
           } else {
             alert('User is not registered.');
           }
