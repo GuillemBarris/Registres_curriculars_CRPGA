@@ -33,7 +33,7 @@ export const GetSdaFromCourse = async (req, res) => {
         }
         let pool = await sql.connect(config);
         let result = await pool.request()
-            .input('id_course', sql.Int, id_course)
+            .input('id_course', sql.VarChar, id_course)
             .query('USE Registres_Curriculars; SELECT * FROM Sda WHERE id_course = @id_course');
         res.status(200).json(result.recordset);
     } catch (err) {
