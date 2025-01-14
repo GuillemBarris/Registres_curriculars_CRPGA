@@ -1,15 +1,16 @@
 <label>Titol
-    <input placeholder="Títol" type="text"  name="title">
+    <input placeholder="Títol" [(ngModel)]="title" type="text"  name="title">
 </label>
 <label>Descripció
-    <input placeholder="Descripció" type="text" name="description">
+    <input placeholder="Descripció" [(ngModel)]="description" type="text" name="description">
 </label>
 <label>Enllaç
-    <input placeholder="Enllaç" type="text" name="link">
+    <input placeholder="Enllaç" [(ngModel)]="link"  type="text" name="link">
 </label>
 <label> Data d'Inici
-    <input placeholder="Data d'inici" type="date" name="startDate"> 
+    <input placeholder="Data d'inici" [(ngModel)]="startDate" type="date" name="startDate"> 
 </label>
 <label> Data de Finalització
-    <input placeholder="Data de finalització" type="date" name="endDate">
+    <input placeholder="Data de finalització" [(ngModel)]="endDate" type="date" name="endDate">
 </label>
+<button (click)="createSda()" class="create-sda-button">Crea</button>
