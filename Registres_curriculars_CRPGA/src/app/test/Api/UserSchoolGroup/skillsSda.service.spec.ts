@@ -33,7 +33,7 @@ describe('SkillsSda',()=> {
         service.postSkillSda(newSkillSda).subscribe((response) => {
           expect(response).toEqual(newSkillSda);
         });
-        const req = httpMock.expectOne(`${service['url']}/createSkillsSda/`);
+        const req = httpMock.expectOne(`${service['url']}createSkillsSda/`);
         expect(req.request.method).toBe('POST');
         req.flush(newSkillSda);
       });
