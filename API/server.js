@@ -10,6 +10,7 @@ import KnoweledgesRoutes from './routes/KnowledgesRoutes.js';
 import SkillsRoutes from './routes/SkillsRoutes.js';
 import GidelinesRoutes from './routes/GidelinesRoutes.js';
 import SkillsSdARoutes from './routes/SkillsSdARoutes.js';
+import GidelinesSdARoutes from './routes/GidelinesSdARoutes.js';
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use("/api/v1/knowledge", KnoweledgesRoutes)
 app.use("/api/v1/skills/", SkillsRoutes)
 app.use("/api/v1/gidelines/", GidelinesRoutes)
 app.use("/api/v1/skillsSda/", SkillsSdARoutes)
+app.use("/api/v1/gidelinesSda/", GidelinesSdARoutes)
 
 app.listen(PORT, IP, () => {
     console.log(`Server is running on http://${IP}:${PORT}`);
