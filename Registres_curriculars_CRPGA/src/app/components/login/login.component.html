@@ -1,41 +1,68 @@
+
 <body>
-  <div class="header"></div>
-  <div>
-    <div class="content">
-      <img src="assets/img/user.png" alt="User Icon">
+  <header class="header"></header>
+  <main>
+    <section class="content">
+      <img src="assets/img/user.png" alt="User Icon" class="user-icon">
       <div class="content-row">
         <div class="content-input">
-          <p>Correu</p>
-          <input value="Correu">
+          <label for="email-input">Correu</label>
+          <input id="email-input" type="email" placeholder="Enter your email">
         </div>
       </div>
-      <div class="content-row">
-        <div class="content-input">
-          <p>Contrasenya</p>
-          <input type="password">
-        </div>
-      </div>
-      <a href="http://localhost:4200/registres-u" class="login-button"> Entrar </a>
 
-      <div id="g_id_onload" data-client_id="843785544318-q6aq282t6fp30ooq8576nua88tp4nvmi.apps.googleusercontent.com"
-        data-context="signin" data-ux_mode="popup" data-callback="handleOauthResponse" data-auto_prompt="false">
+      <!-- Google Sign-In Button -->
+      <div id="g_id_onload"
+           data-client_id="843785544318-q6aq282t6fp30ooq8576nua88tp4nvmi.apps.googleusercontent.com"
+           data-context="signin"
+           data-ux_mode="popup"
+           data-callback="handleOauthResponse"
+           data-auto_prompt="false">
       </div>
-
-      <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="filled_blue"
-        data-text="signin_with" data-size="large" data-logo_alignment="left">
+      <div class="g_id_signin"
+           data-type="standard"
+           data-shape="rectangular"
+           data-theme="filled_blue"
+           data-text="signin_with"
+           data-size="large"
+           data-logo_alignment="left">
       </div>
+    </section>
+  </main>
 
-    </div>
-  </div>
   <script>
+    /**
+     * Decodes a JWT token to extract its payload.
+     * @param {string} token - The JWT token to decode.
+     * @returns {object} - The decoded payload.
+     */
     function decodeJWTToken(token) {
-      return JSON.parse(atob(token.split(".")[1]));
+      try {
+        return JSON.parse(atob(token.split(".")[1]));
+      } catch (error) {
+        console.error("Invalid JWT token format:", error);
+        return null;
+      }
     }
 
+    /**
+     * Handles the OAuth response from Google Sign-In.
+     * @param {object} response - The OAuth response from Google.
+     */
     function handleOauthResponse(response) {
+      console.log("OAuth Response Received:", response);
+      // Pass the response to your Angular component's method
       const appElement = document.querySelector('app-login');
-      const ngComponent = angular.element(appElement).scope().$ctrl;
-      ngComponent.handleOauthResponse(response);
+      if (appElement) {
+        const ngComponent = angular.element(appElement).scope().$ctrl;
+        if (ngComponent && typeof ngComponent.handleOauthResponse === 'function') {
+          ngComponent.handleOauthResponse(response);
+        } else {
+          console.error("Angular component or method not found.");
+        }
+      } else {
+        console.error("App component not found in the DOM.");
+      }
     }
   </script>
 </body>
