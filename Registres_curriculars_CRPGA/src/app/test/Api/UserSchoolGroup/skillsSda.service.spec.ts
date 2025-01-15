@@ -24,4 +24,17 @@ describe('SkillsSda',()=> {
       it('should be created', () => {
         expect(service).toBeTruthy();
       });
-})
+      it('should create new skillSda', () => {
+        const newSkillSda = {
+          id_skills: 'test',
+          id_sda: 'test',
+          check: 0,
+        };
+        service.postSkillSda(newSkillSda).subscribe((response) => {
+          expect(response).toEqual(newSkillSda);
+        });
+        const req = httpMock.expectOne(`${service['url']}/createSkillsSda/`);
+        expect(req.request.method).toBe('POST');
+        req.flush(newSkillSda);
+      });
+ });
