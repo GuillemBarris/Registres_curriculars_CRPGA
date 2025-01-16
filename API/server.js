@@ -12,6 +12,7 @@ import GidelinesRoutes from './routes/GidelinesRoutes.js';
 import SkillsSdARoutes from './routes/SkillsSdARoutes.js';
 import GidelinesSdARoutes from './routes/GidelinesSdARoutes.js';
 import KnowledgesSdaRoutes from './routes/KnowledgesSdARoutes.js';
+import authMiddleware from './middleware/auth.js';
 
 const app = express();
 
@@ -20,6 +21,9 @@ const IP = '172.21.46.184';
 
 app.use(cors()); 
 app.use(express.json());
+app.use(authMiddleware);
+
+
 app.use("/api/v1/users", UserRoutes);
 app.use("/api/v1/userSchoolGroup", UserSchoolGroup);
 app.use("/api/v1/schools", SchoolsRoutes);

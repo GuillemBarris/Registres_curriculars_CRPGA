@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { GoogleLoginProvider, SocialAuthService, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
@@ -25,6 +25,7 @@ declare const google: any;
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LoginComponent implements OnInit {
   constructor(
