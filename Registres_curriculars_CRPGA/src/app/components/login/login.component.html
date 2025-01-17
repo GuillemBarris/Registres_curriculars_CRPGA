@@ -1,4 +1,3 @@
-
 <body>
   <header class="header"></header>
   <main>
@@ -10,8 +9,6 @@
           <input id="email-input" type="email" placeholder="Enter your email">
         </div>
       </div>
-
-      
 
       <div id="g_id_onload"
            data-client_id="843785544318-q6aq282t6fp30ooq8576nua88tp4nvmi.apps.googleusercontent.com"
@@ -32,27 +29,22 @@
   </main>
 
   <script>
-    /**
-     * Decodes a JWT token to extract its payload.
-     * @param {string} token - The JWT token to decode.
-     * @returns {object} - The decoded payload.
-     */
+   
     function decodeJWTToken(token) {
+      if (!token || !token.includes('.')) {
+        console.error("Invalid JWT token format.");
+        return null;
+      }
       try {
         return JSON.parse(atob(token.split(".")[1]));
       } catch (error) {
-        console.error("Invalid JWT token format:", error);
+        console.error("Error decoding JWT token:", error);
         return null;
       }
     }
 
-    /**
-     * Handles the OAuth response from Google Sign-In.
-     * @param {object} response - The OAuth response from Google.
-     */
-    function handleOauthResponse(response) {
+    window.handleOauthResponse = function(response) {
       console.log("OAuth Response Received:", response);
-      // Pass the response to your Angular component's method
       const appElement = document.querySelector('app-login');
       if (appElement) {
         const ngComponent = angular.element(appElement).scope().$ctrl;
@@ -64,6 +56,6 @@
       } else {
         console.error("App component not found in the DOM.");
       }
-    }
+    };
   </script>
 </body>
