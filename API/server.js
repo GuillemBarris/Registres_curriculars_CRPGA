@@ -21,7 +21,7 @@ const IP = '172.21.46.184';
 
 app.use(cors()); 
 app.use(express.json());
-app.use(authMiddleware);
+/*app.use(authMiddleware);*/
 
 
 app.use("/api/v1/users", UserRoutes);

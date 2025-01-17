@@ -61,6 +61,7 @@ describe('SdaServiceService', () => {
       start_date: '2021-12-12',
       end_date: '2021-12-12',
       id_template: 1,
+      creation_date:"2025-01-16 12:33:19"
     };
     service.postSda(newSda).subscribe((response) => {
       expect(response).toEqual(newSda);
