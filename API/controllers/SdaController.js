@@ -2,7 +2,7 @@ import sql from 'mssql';
 import config from '../config/dbConfig.js';
 
 export const CreateSda  = async (req, res) => {
-    const { title, description, link, id_course, start_date, end_date, id_template } = req.body;
+    const { title, description, link, id_course, start_date, end_date, id_template, creation_date} = req.body;
     try {
         let pool = await sql.connect(config);
         let result = await pool.request()
@@ -13,7 +13,8 @@ export const CreateSda  = async (req, res) => {
             .input('start_date', sql.Date, start_date)
             .input('end_date', sql.Date, end_date)
             .input('id_template', sql.VarChar, id_template)
-            .query('USE Registres_Curriculars; INSERT INTO Sda ( title, description, link, id_course, start_date, end_date, id_template) VALUES ( @title, @description, @link, @id_course, @start_date, @end_date, @id_template)');
+            .input('creation_date', sql.DateTime, creation_date)
+            .query('USE Registres_Curriculars; INSERT INTO Sda ( title, description, link, id_course, start_date, end_date, id_template, creation_date) VALUES ( @title, @description, @link, @id_course, @start_date, @end_date, @id_template, @creation_date)');
         if (result.rowsAffected[0] > 0) {
             res.status(201).json({ message: 'Sda created successfully' });
         }
